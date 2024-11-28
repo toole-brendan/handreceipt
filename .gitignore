@@ -91,3 +91,18 @@ deployment/terraform/*.tfvars
 # Local development
 *.profraw
 /tmp/
+
+# Additional Rust build artifacts
+**/deps/
+**/incremental/
+**/build/
+**/*.rmeta
+**/*.rlib
+**/*.dylib
+**/*.so
+**/*.dll
+**/*.d
+**/*.o
+**/examples/
+**/tmp/
+**/rmeta*/

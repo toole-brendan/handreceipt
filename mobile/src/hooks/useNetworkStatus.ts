@@ -33,8 +33,10 @@ export const useNetworkStatus = () => {
 
         try {
             setIsSyncing(true);
-            const result = await HandReceiptModule.syncPendingTransfers();
-            console.log('Sync result:', result);
+            if (HandReceiptModule?.syncPendingTransfers) {
+                const result = await HandReceiptModule.syncPendingTransfers();
+                console.log('Sync result:', result);
+            }
         } catch (error) {
             console.error('Sync error:', error);
         } finally {

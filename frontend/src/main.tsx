@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import App from './App';
-import '@/ui/styles/app.css';
+import '@styles/app.css';
 import './index.css';
 
 class ErrorBoundary extends React.Component<

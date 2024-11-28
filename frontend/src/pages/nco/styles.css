@@ -1,0 +1,29 @@
+/* frontend/src/pages/property/personnel-property/styles.css */
+
+.personnel-property-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #121212;
+  min-height: 100vh;
+  color: white;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-content h2 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 600;
+} 

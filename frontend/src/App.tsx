@@ -2,14 +2,13 @@
 
 import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Header from '@/ui/components/common/Header';
-import Sidebar from '@/ui/components/common/Sidebar';
-import LoadingFallback from '@/ui/components/common/LoadingFallback';
-import ErrorBoundary from '@/ui/components/common/ErrorBoundary';
-import AppRoutes from '@/routes';
-import '@/ui/styles/app.css';
-import { ConnectionTest } from '@/components/common/ConnectionTest';
-import { SettingsProvider } from '@/contexts/SettingsContext';
+import Header from '@shared/components/layout/Header';
+import Sidebar from '@shared/components/layout/Sidebar';
+import LoadingFallback from '@shared/components/feedback/LoadingFallback';
+import ErrorBoundary from '@shared/components/feedback/ErrorBoundary';
+import AppRoutes from './routes';
+import '@styles/app.css';
+import { SettingsProvider } from '@contexts/SettingsContext';
 
 const App: React.FC = () => {
   return (
@@ -17,7 +16,6 @@ const App: React.FC = () => {
       <SettingsProvider>
         <ErrorBoundary>
           <div className="app-layout">
-            {process.env.NODE_ENV === 'development' && <ConnectionTest />}
             <Header />
             <div className="app-body">
               <Sidebar />

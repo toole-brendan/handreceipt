@@ -2,14 +2,13 @@
 
 import React, { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import ErrorBoundary from '@/ui/components/common/ErrorBoundary';
+import ErrorBoundary from '@shared/components/feedback/ErrorBoundary';
 
 // Lazy load components
-const Dashboard = lazy(() => import('@/pages/dashboard/Dashboard'));
-const Reports = lazy(() => import('@/pages/reports/Reports'));
-const PersonnelProperty = lazy(() => import('@/pages/property/personnel-property'));
-const MyProperty = lazy(() => import('@/pages/property/my-property'));
-const CreateQRCode = lazy(() => import('@/pages/assets/CreateQRCode'));
+const Dashboard = lazy(() => import('@features/dashboard/components/Dashboard'));
+const Reports = lazy(() => import('@features/reports/components/Reports'));
+const PersonnelProperty = lazy(() => import('@/pages/nco/PersonnelPropertyList'));
+const MyProperty = lazy(() => import('@/pages/soldier/CurrentPropertyList'));
 const BlockchainExplorer = lazy(() => import('@/pages/blockchain/explorer'));
 const BlockchainTransactions = lazy(() => import('@/pages/blockchain/transactions'));
 const Scanner = lazy(() => import('@/pages/mobile/scanner'));
@@ -40,13 +39,6 @@ export const AppRoutes: React.FC = () => {
             </ErrorBoundary>
           } />
         </Route>
-
-        {/* Assets */}
-        <Route path="/assets/create-qr" element={
-          <ErrorBoundary>
-            <CreateQRCode />
-          </ErrorBoundary>
-        } />
 
         {/* Reports */}
         <Route path="/reports/*" element={

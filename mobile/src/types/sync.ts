@@ -1,23 +1,30 @@
 export enum SyncStatus {
     PENDING = 'PENDING',
-    SYNCED = 'SYNCED',
-    FAILED = 'FAILED',
-    CANCELLED = 'CANCELLED',
-    OFFLINE = 'OFFLINE'
+    SYNCING = 'SYNCING',
+    COMPLETED = 'COMPLETED',
+    FAILED = 'FAILED'
 }
 
 export interface Transfer {
     id: string;
     propertyId: string;
+    fromUserId: string;
+    toUserId: string;
     timestamp: string;
-    scanData: any; // Will be ScanResult
     status: SyncStatus;
+    signature: string;
     retryCount: number;
+    error?: string;
+    lastRetry?: string;
+    location?: string;
+}
+
+export interface SyncResult {
+    success: boolean;
     error?: string;
 }
 
-export interface SyncError {
-    code: string;
-    message: string;
-    transfer?: Transfer;
+export interface BatchSyncResult {
+    synced: string[];
+    failed: string[];
 } 
