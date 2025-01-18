@@ -1,0 +1,175 @@
+/* Form Input Styles */
+
+/* Base Input */
+.input {
+  width: 100%;
+  height: 2.25rem;
+  padding: 0 var(--space-3);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--text-default);
+  background-color: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+/* Input States */
+.input:hover {
+  border-color: var(--border-emphasis);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--border-focused);
+  box-shadow: 0 0 0 2px var(--brand-subtle);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--surface-subtle);
+}
+
+.input::placeholder {
+  color: var(--text-subtle);
+}
+
+/* Input Sizes */
+.input-sm {
+  height: 2rem;
+  padding: 0 var(--space-2);
+  font-size: var(--font-size-xs);
+}
+
+.input-lg {
+  height: 2.5rem;
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-md);
+}
+
+/* Input Variants */
+.input-filled {
+  background-color: var(--surface-subtle);
+  border-color: transparent;
+}
+
+.input-filled:hover {
+  background-color: var(--surface-emphasis);
+}
+
+/* Input with Icon */
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-left {
+  padding-left: var(--space-8);
+}
+
+.input-icon-right {
+  padding-right: var(--space-8);
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-subtle);
+  pointer-events: none;
+}
+
+.input-icon-left .input-icon {
+  left: var(--space-2);
+}
+
+.input-icon-right .input-icon {
+  right: var(--space-2);
+}
+
+/* Input with Clear Button */
+.input-clearable {
+  padding-right: var(--space-8);
+}
+
+.input-clear-button {
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-subtle);
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-full);
+}
+
+.input-clear-button:hover {
+  color: var(--text-default);
+  background-color: var(--surface-hover);
+}
+
+/* Input Validation States */
+.input-error {
+  border-color: var(--status-error-default);
+}
+
+.input-error:hover,
+.input-error:focus {
+  border-color: var(--status-error-emphasis);
+  box-shadow: 0 0 0 2px var(--status-error-subtle);
+}
+
+.input-success {
+  border-color: var(--status-success-default);
+}
+
+.input-success:hover,
+.input-success:focus {
+  border-color: var(--status-success-emphasis);
+  box-shadow: 0 0 0 2px var(--status-success-subtle);
+}
+
+/* Input Groups */
+.input-group {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.input-group .input {
+  flex: 1;
+}
+
+/* Input Addons */
+.input-addon {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  background-color: var(--surface-subtle);
+  border: 1px solid var(--border-default);
+  color: var(--text-subtle);
+  font-size: var(--font-size-sm);
+}
+
+.input-addon-left {
+  border-right: none;
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+
+.input-addon-right {
+  border-left: none;
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.input-group .input:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group .input:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+} 

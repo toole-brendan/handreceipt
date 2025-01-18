@@ -1,0 +1,163 @@
+/* Property Card */
+.property-card {
+  background: var(--background-darker);
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.property-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.property-card__title-container {
+  flex: 1;
+}
+
+.property-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.property-card__subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Content */
+.property-card__content {
+  margin-bottom: 16px;
+}
+
+.property-card__detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.property-card__detail-row:last-child {
+  border-bottom: none;
+}
+
+.property-card__label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.property-card__value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Status Badge */
+.property-card__status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.property-card__status--good {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.property-card__status--due {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.property-card__status--overdue {
+  background: var(--error-bg);
+  color: var(--error);
+}
+
+.property-card__status--pending {
+  background: var(--neutral-bg);
+  color: var(--neutral);
+}
+
+/* Footer */
+.property-card__footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Buttons */
+.property-card__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--background-darker);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.property-card__button:hover {
+  background: var(--background-hover);
+  border-color: var(--border-hover);
+}
+
+.property-card__button-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Grid layout for property lists */
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+/* Status indicators */
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-active {
+  background-color: var(--status-success-subtle);
+  color: var(--status-success-default);
+}
+
+.status-inactive {
+  background-color: var(--status-error-subtle);
+  color: var(--status-error-default);
+}
+
+.status-maintenance {
+  background-color: var(--status-warning-subtle);
+  color: var(--status-warning-default);
+}

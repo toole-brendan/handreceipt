@@ -1,0 +1,62 @@
+/* Design System - Colors */
+
+:root {
+  /* Core Colors - Dark Theme */
+  --background-default: #000000;
+  --background-subtle: #0A0A0A;
+  --background-emphasis: #141414;
+  --background-elevated: #1A1A1A;
+  --background-overlay: rgba(0, 0, 0, 0.85);
+
+  /* Surface Colors */
+  --surface-default: #141414;
+  --surface-subtle: #1A1A1A;
+  --surface-emphasis: #202020;
+  --surface-contrast: #2A2A2A;
+  --surface-overlay: rgba(20, 20, 20, 0.95);
+  
+  /* Interactive Surface Colors */
+  --surface-hover: #202020;
+  --surface-active: #2A2A2A;
+  --surface-selected: #303030;
+  --surface-raised: #1A1A1A;
+  --surface-raised-hover: #202020;
+
+  /* Text Colors */
+  --text-default: rgba(255, 255, 255, 0.95);
+  --text-subtle: rgba(255, 255, 255, 0.65);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --text-disabled: rgba(255, 255, 255, 0.25);
+  --text-inverse: #000000;
+
+  /* Border Colors */
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-emphasis: rgba(255, 255, 255, 0.15);
+  --border-focused: #0A84FF;
+  --border-selected: #0A84FF;
+
+  /* Brand Colors */
+  --brand-default: #0A84FF;
+  --brand-subtle: rgba(10, 132, 255, 0.1);
+  --brand-emphasis: #007AFF;
+  --brand-contrast: #5E5CE6;
+  --brand-disabled: rgba(10, 132, 255, 0.5);
+
+  /* Status Colors */
+  --status-success-default: #00C853;
+  --status-success-subtle: rgba(0, 200, 83, 0.1);
+  --status-success-emphasis: #00B548;
+  
+  --status-warning-default: #FFD600;
+  --status-warning-subtle: rgba(255, 214, 0, 0.1);
+  --status-warning-emphasis: #FFC400;
+  
+  --status-error-default: #FF3D00;
+  --status-error-subtle: rgba(255, 61, 0, 0.1);
+  --status-error-emphasis: #DD3500;
+  
+  --status-info-default: #0A84FF;
+  --status-info-subtle: rgba(10, 132, 255, 0.1);
+  --status-info-emphasis: #007AFF;
+} 

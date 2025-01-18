@@ -1,69 +1,53 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { UserPreferences } from '@/types/user';
 
-interface SettingsContextType {
-  preferences: UserPreferences;
-  updatePreferences: (newPreferences: Partial<UserPreferences>) => Promise<void>;
+interface Settings {
+  darkMode: boolean;
+  highContrast: boolean;
+  fontSize: 'default' | 'large' | 'xlarge';
+  emailNotifications: {
+    transferRequests: boolean;
+    sensitiveItems: boolean;
+    maintenance: boolean;
+  };
+  pushNotifications: {
+    urgentAlerts: boolean;
+    propertyUpdates: boolean;
+  };
+  mobileSettings: {
+    offlineMode: boolean;
+    cameraAccess: boolean;
+  };
 }
 
-const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
+interface SettingsContextType extends Settings {
+  toggleDarkMode: () => void;
+  toggleHighContrast: () => void;
+  setFontSize: (size: 'default' | 'large' | 'xlarge') => void;
+  toggleEmailNotification: (key: keyof Settings['emailNotifications']) => void;
+  togglePushNotification: (key: keyof Settings['pushNotifications']) => void;
+  toggleMobileSetting: (key: keyof Settings['mobileSettings']) => void;
+}
 
-export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [preferences, setPreferences] = useState<UserPreferences>({
-    theme: 'system',
-    notifications: {
-      email: true,
-      push: true,
-      transferRequests: true,
-      securityAlerts: true,
-      systemUpdates: true,
-      assetChanges: true,
-    },
-    language: 'en',
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    dateFormat: 'MM/DD/YYYY',
-  });
-
-  useEffect(() => {
-    loadPreferences();
-  }, []);
-
-  const loadPreferences = async () => {
-    try {
-      const response = await fetch('/api/v1/user/preferences');
-      const data = await response.json();
-      if (data.success) {
-        setPreferences(data.data);
-      }
-    } catch (error) {
-      console.error('Error loading preferences:', error);
-    }
-  };
-
-  const updatePreferences = async (newPreferences: Partial<UserPreferences>) => {
-    try {
-      const response = await fetch('/api/v1/user/preferences', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newPreferences),
-      });
-      
-      if (response.ok) {
-        setPreferences(prev => ({ ...prev, ...newPreferences }));
-      }
-    } catch (error) {
-      console.error('Error updating preferences:', error);
-    }
-  };
-
-  return (
-    <SettingsContext.Provider value={{ preferences, updatePreferences }}>
-      {children}
-    </SettingsContext.Provider>
-  );
+const defaultSettings: Settings = {
+  darkMode: true,
+  highContrast: false,
+  fontSize: 'default',
+  emailNotifications: {
+    transferRequests: true,
+    sensitiveItems: true,
+    maintenance: false,
+  },
+  pushNotifications: {
+    urgentAlerts: true,
+    propertyUpdates: true,
+  },
+  mobileSettings: {
+    offlineMode: true,
+    cameraAccess: true,
+  },
 };
+
+const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
 export const useSettings = () => {
   const context = useContext(SettingsContext);
@@ -71,4 +55,125 @@ export const useSettings = () => {
     throw new Error('useSettings must be used within a SettingsProvider');
   }
   return context;
-}; 
+};
+
+interface SettingsProviderProps {
+  children: React.ReactNode;
+}
+
+export const SettingsProvider: React.FC<SettingsProviderProps> = ({ children }) => {
+  // Initialize state from localStorage or defaults
+  const [settings, setSettings] = useState<Settings>(() => {
+    try {
+      const savedSettings = localStorage.getItem('appSettings');
+      if (savedSettings) {
+        const parsed = JSON.parse(savedSettings);
+        // Validate parsed settings against default structure
+        return {
+          ...defaultSettings,
+          ...parsed,
+          emailNotifications: {
+            ...defaultSettings.emailNotifications,
+            ...(parsed.emailNotifications || {}),
+          },
+          pushNotifications: {
+            ...defaultSettings.pushNotifications,
+            ...(parsed.pushNotifications || {}),
+          },
+          mobileSettings: {
+            ...defaultSettings.mobileSettings,
+            ...(parsed.mobileSettings || {}),
+          },
+        };
+      }
+    } catch (error) {
+      console.error('Error loading settings:', error);
+    }
+    return defaultSettings;
+  });
+
+  // Save settings to localStorage when they change
+  useEffect(() => {
+    try {
+      // Only save serializable parts of the settings
+      const settingsToSave = {
+        darkMode: settings.darkMode,
+        highContrast: settings.highContrast,
+        fontSize: settings.fontSize,
+        emailNotifications: settings.emailNotifications,
+        pushNotifications: settings.pushNotifications,
+        mobileSettings: settings.mobileSettings,
+      };
+      localStorage.setItem('appSettings', JSON.stringify(settingsToSave));
+    } catch (error) {
+      console.error('Error saving settings:', error);
+    }
+  }, [settings]);
+
+  const toggleDarkMode = () => {
+    setSettings((prev: Settings) => ({
+      ...prev,
+      darkMode: !prev.darkMode,
+    }));
+  };
+
+  const toggleHighContrast = () => {
+    setSettings((prev: Settings) => ({
+      ...prev,
+      highContrast: !prev.highContrast,
+    }));
+  };
+
+  const setFontSize = (size: 'default' | 'large' | 'xlarge') => {
+    setSettings((prev: Settings) => ({
+      ...prev,
+      fontSize: size,
+    }));
+  };
+
+  const toggleEmailNotification = (key: keyof Settings['emailNotifications']) => {
+    setSettings((prev: Settings) => ({
+      ...prev,
+      emailNotifications: {
+        ...prev.emailNotifications,
+        [key]: !prev.emailNotifications[key],
+      },
+    }));
+  };
+
+  const togglePushNotification = (key: keyof Settings['pushNotifications']) => {
+    setSettings((prev: Settings) => ({
+      ...prev,
+      pushNotifications: {
+        ...prev.pushNotifications,
+        [key]: !prev.pushNotifications[key],
+      },
+    }));
+  };
+
+  const toggleMobileSetting = (key: keyof Settings['mobileSettings']) => {
+    setSettings((prev: Settings) => ({
+      ...prev,
+      mobileSettings: {
+        ...prev.mobileSettings,
+        [key]: !prev.mobileSettings[key],
+      },
+    }));
+  };
+
+  const value: SettingsContextType = {
+    ...settings,
+    toggleDarkMode,
+    toggleHighContrast,
+    setFontSize,
+    toggleEmailNotification,
+    togglePushNotification,
+    toggleMobileSetting,
+  };
+
+  return (
+    <SettingsContext.Provider value={value}>
+      {children}
+    </SettingsContext.Provider>
+  );
+} 

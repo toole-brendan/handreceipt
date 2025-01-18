@@ -1,15 +1,24 @@
+// tsconfig.paths.json
+
 {
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+    "@/hooks/*": ["./src/hooks/*"],
+    "@/styles/*": ["./src/styles/*"],      "@/*": ["src/*"],
       "@app/*": ["src/app/*"],
-      "@auth/*": ["src/auth/*"],
+      "@components/*": ["src/components/*"],
+      "@contexts/*": ["src/contexts/*"],
       "@features/*": ["src/features/*"],
-      "@shared/*": ["src/shared/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
       "@services/*": ["src/services/*"],
+      "@shared/*": ["src/shared/*"],
       "@store/*": ["src/store/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@types/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"],
+      "@ui/*": ["src/ui/*"]
     }
   }
 }

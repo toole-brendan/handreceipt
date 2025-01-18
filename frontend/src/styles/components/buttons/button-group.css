@@ -1,0 +1,53 @@
+/* Button Group Styles */
+
+.btn-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Attached Buttons */
+.btn-group .btn:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+
+.btn-group .btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Vertical Button Group */
+.btn-group-vertical {
+  flex-direction: column;
+}
+
+.btn-group-vertical .btn:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: -1px;
+}
+
+.btn-group-vertical .btn:not(:last-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Button Group Sizes */
+.btn-group-sm .btn {
+  height: 2rem;
+  padding: 0 var(--space-3);
+  font-size: var(--font-size-sm);
+}
+
+.btn-group-lg .btn {
+  height: 2.5rem;
+  padding: 0 var(--space-6);
+  font-size: var(--font-size-lg);
+}
+
+/* Button Group with Icons */
+.btn-group-icon .btn {
+  width: 2.25rem;
+  padding: var(--space-2);
+} 

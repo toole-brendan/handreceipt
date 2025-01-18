@@ -1,0 +1,150 @@
+/* Report Form Components */
+
+/* Form Container */
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--report-spacing-lg);
+}
+
+/* Form Section */
+.report-form-section {
+  background: var(--report-surface-secondary);
+  border-radius: var(--report-radius-lg);
+  padding: var(--report-spacing-lg);
+  box-shadow: var(--report-shadow-sm);
+}
+
+.report-form-section-header {
+  margin-bottom: var(--report-spacing-lg);
+  padding-bottom: var(--report-spacing-sm);
+  border-bottom: 1px solid var(--report-border-primary);
+}
+
+.report-form-section-title {
+  font-size: var(--report-font-size-lg);
+  font-weight: var(--report-font-weight-semibold);
+  color: var(--report-text-primary);
+}
+
+/* Form Grid */
+.report-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--report-spacing-lg);
+}
+
+/* Form Group */
+.report-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--report-spacing-xs);
+  margin-bottom: var(--report-spacing-md);
+}
+
+.report-form-group--full {
+  grid-column: 1 / -1;
+}
+
+/* Form Label */
+.report-form-label {
+  font-size: var(--report-font-size-sm);
+  font-weight: var(--report-font-weight-medium);
+  color: var(--report-text-primary);
+}
+
+.report-form-label-required::after {
+  content: '*';
+  color: var(--report-status-error-text);
+  margin-left: var(--report-spacing-xs);
+}
+
+/* Form Controls */
+.report-form-control {
+  width: 100%;
+  padding: var(--report-spacing-sm);
+  border: 1px solid var(--report-border-primary);
+  border-radius: var(--report-radius-md);
+  background: var(--report-surface-primary);
+  color: var(--report-text-primary);
+  font-size: var(--report-font-size-sm);
+  transition: border-color var(--report-transition-fast) var(--report-transition-timing),
+              box-shadow var(--report-transition-fast) var(--report-transition-timing);
+}
+
+.report-form-control:focus {
+  outline: none;
+  border-color: var(--report-color-primary);
+  box-shadow: 0 0 0 2px var(--report-color-primary-light);
+}
+
+.report-form-control:disabled {
+  background: var(--report-surface-secondary);
+  cursor: not-allowed;
+}
+
+/* Select Control */
+.report-form-select {
+  appearance: none;
+  padding-right: var(--report-spacing-xl);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' viewBox='0 0 12 12'%3E%3Cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 5l3 3 3-3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--report-spacing-sm) center;
+}
+
+/* Checkbox & Radio */
+.report-form-checkbox,
+.report-form-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--report-spacing-sm);
+  cursor: pointer;
+}
+
+.report-form-checkbox input[type="checkbox"],
+.report-form-radio input[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+}
+
+/* Form Validation */
+.report-form-error {
+  font-size: var(--report-font-size-sm);
+  color: var(--report-status-error-text);
+  margin-top: var(--report-spacing-xs);
+}
+
+.report-form-control--error {
+  border-color: var(--report-status-error-text);
+}
+
+.report-form-control--error:focus {
+  box-shadow: 0 0 0 2px var(--report-status-error-bg);
+}
+
+/* Form Actions */
+.report-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--report-spacing-md);
+  margin-top: var(--report-spacing-xl);
+  padding-top: var(--report-spacing-lg);
+  border-top: 1px solid var(--report-border-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .report-form-section {
+    padding: var(--report-spacing-md);
+  }
+
+  .report-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .report-form-actions {
+    flex-direction: column;
+    gap: var(--report-spacing-sm);
+  }
+} 

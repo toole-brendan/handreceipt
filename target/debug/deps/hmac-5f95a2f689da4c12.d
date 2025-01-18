@@ -1,0 +1,9 @@
+/Users/brendantoole/handreceipt_working/target/debug/deps/libhmac-5f95a2f689da4c12.rmeta: /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/lib.rs /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/optim.rs /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/simple.rs
+
+/Users/brendantoole/handreceipt_working/target/debug/deps/libhmac-5f95a2f689da4c12.rlib: /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/lib.rs /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/optim.rs /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/simple.rs
+
+/Users/brendantoole/handreceipt_working/target/debug/deps/hmac-5f95a2f689da4c12.d: /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/lib.rs /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/optim.rs /Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/simple.rs
+
+/Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/lib.rs:
+/Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/optim.rs:
+/Users/brendantoole/.cargo/registry/src/index.crates.io-6f17d22bba15001f/hmac-0.12.1/src/simple.rs:

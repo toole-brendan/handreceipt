@@ -1,0 +1,93 @@
+/* frontend/src/ui/styles/property/property-tables.css */
+
+.current-property-section,
+.historical-property-section {
+  margin-bottom: 2rem;
+}
+
+.current-property-section h2,
+.historical-property-section h2 {
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.property-table {
+  background: var(--color-surface);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.property-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.property-table th,
+.property-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.property-table th {
+  background: var(--color-surface-variant);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.property-table td {
+  color: var(--color-text-primary);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-badge.serviceable {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.status-badge.unserviceable {
+  background: var(--color-error-light);
+  color: var(--color-error);
+}
+
+.status-badge.maintenance-required {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.status-badge.transferred {
+  background: var(--color-info-light);
+  color: var(--color-info);
+}
+
+.status-badge.turned-in {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.status-badge.lost {
+  background: var(--color-error-light);
+  color: var(--color-error);
+}
+
+@media (max-width: 768px) {
+  .property-table {
+    overflow-x: auto;
+  }
+
+  .property-table th,
+  .property-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+} 

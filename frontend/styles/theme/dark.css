@@ -1,9 +1,0 @@
-/* frontend/src/ui/styles/themes/dark.css */
-
-/* Dark theme */
-[data-theme="dark"] {
-  --color-background: #121212;
-  --color-surface: #1e1e1e;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #a0a0a0;
-}

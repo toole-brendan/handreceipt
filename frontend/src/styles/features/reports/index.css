@@ -1,0 +1,20 @@
+/* Reports Feature Styles */
+
+@import './asset-reports.css';
+@import './report-builder.css';
+@import './report-generator.css';
+@import './report-viewer.css';
+@import './print.css';
+@import './report-actions.css';
+@import './report-categories.css';
+@import './report-classification-badge.css';
+@import './report-filters.css';
+@import './report-list.css';
+@import './report-preview.css';
+
+/* Report Templates */
+@import './templates/audit-report.css';
+@import './templates/base.css';
+@import './templates/maintenance-report.css';
+@import './templates/property-accountability.css';
+@import './templates/security-report.css'; 

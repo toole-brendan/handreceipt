@@ -1,0 +1,138 @@
+/* Military-Grade Design System - Effects */
+
+:root {
+  /* Opacity System */
+  --opacity-light: 0.04;
+  --opacity-medium: 0.08;
+  --opacity-heavy: 0.12;
+  
+  /* Border System */
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+  
+  /* Status Effects */
+  --status-warning-glow: 0 0 16px rgba(255, 215, 0, 0.2);
+  --status-error-glow: 0 0 16px rgba(255, 59, 59, 0.2);
+  --status-neutral-glow: 0 0 16px rgba(255, 255, 255, 0.1);
+
+  /* Z-Index Scale */
+  --z-index-base: 1;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1100;
+  --z-index-navbar: 1200;
+  --z-index-fixed: 1300;
+  --z-index-modal-backdrop: 1400;
+  --z-index-modal: 1500;
+  --z-index-popover: 1600;
+  --z-index-tooltip: 1700;
+
+  /* Military-Grade Transitions */
+  --transition-precise: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-standard: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-complex: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Military-Grade Easing */
+  --ease-precise: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+  --ease-smooth: cubic-bezier(0.0, 0, 0.2, 1);
+
+  /* Transition Properties */
+  --transition-border: border-color, border-width;
+  --transition-interactive: background-color, border-color, color, opacity;
+  --transition-status: border-color, opacity;
+  --transition-transform: transform;
+
+  /* Military-Grade Animations */
+  --animation-status-pulse: statusPulse 2s var(--ease-sharp) infinite;
+  --animation-alert: alert 1s var(--ease-sharp) infinite;
+  --animation-scan: scan 2s var(--ease-precise) infinite;
+  --animation-deploy: deploy 0.3s var(--ease-precise);
+}
+
+/* Military-Grade Keyframes */
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 1;
+    border-color: currentColor;
+  }
+  50% {
+    opacity: 0.7;
+    border-color: transparent;
+  }
+}
+
+@keyframes alert {
+  0%, 100% {
+    border-color: var(--status-error-border);
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes scan {
+  0% {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.24);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+@keyframes deploy {
+  0% {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Interactive Element Utilities */
+.interactive {
+  background: #000000;
+  border: var(--border-width-thin) solid rgba(255, 255, 255, var(--opacity-light));
+  transition: var(--transition-interactive);
+}
+
+.interactive:hover {
+  border-color: rgba(255, 255, 255, var(--opacity-medium));
+  background: rgba(255, 255, 255, var(--opacity-light));
+}
+
+/* Status Effect Utilities */
+.status-warning {
+  border: var(--border-width-medium) solid var(--status-warning);
+}
+
+.status-error {
+  border: var(--border-width-medium) solid var(--status-error);
+}
+
+.status-neutral {
+  border: var(--border-width-medium) solid var(--status-neutral);
+}
+
+/* Animation Utilities */
+.animate-status-pulse {
+  animation: var(--animation-status-pulse);
+}
+
+.animate-alert {
+  animation: var(--animation-alert);
+}
+
+.animate-scan {
+  animation: var(--animation-scan);
+  border: var(--border-width-thin) solid;
+}
+
+.animate-deploy {
+  animation: var(--animation-deploy);
+} 

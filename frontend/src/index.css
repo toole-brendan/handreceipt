@@ -1,25 +1,77 @@
 /* frontend/src/index.css */
 
-/* Import base styles */
-@import './styles/base/variables.css';
-@import './styles/base/base.css';
+@import '@styles/base/reset.css';
+@import '@styles/base/base.css';
+@import '@styles/base/colors.css';
+@import '@styles/base/utilities.css';
+@import '@styles/base/effects.css';
+@import '@styles/base/global.css';
 
-/* Import layout styles */
-@import './styles/components/layout.css';
+/* Theme-specific styles */
+@import '@styles/base/light.css';
+@import '@styles/base/dark.css';
 
-/* Import component styles */
-@import './styles/components/header.css';
-@import './styles/components/sidebar.css';
-@import './styles/components/loading-fallback.css';
+/* Layout */
+@import '@styles/layout/breakpoints.css';
+@import '@styles/layout/container.css';
+@import '@styles/layout/grid.css';
+@import '@styles/layout/spacing.css';
 
-/* Import auth styles */
-@import './styles/components/auth/login.css';
-@import './styles/components/auth/shared.css';
+/* Components */
+@import '@styles/components/buttons/button.css';
+@import '@styles/components/forms/form-layout.css';
+@import '@styles/components/layout/content.css';
+@import '@styles/components/layout/header.css';
+@import '@styles/components/layout/sidebar.css';
 
-/* Import dashboard styles */
-@import './styles/components/dashboard/dashboard.css';
-@import './styles/components/dashboard/base.css';
-@import './styles/components/dashboard/common.css';
-@import './styles/components/dashboard/roles/officer.css';
-@import './styles/components/dashboard/roles/nco.css';
-@import './styles/components/dashboard/components/asset-overview.css';
+/* Features */
+@import '@styles/features/dashboard/dashboard.css';
+@import '@styles/features/auth/login.css';
+@import '@styles/features/reports/report-builder.css';
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background-default);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 2px solid var(--border-focused);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--brand-default);
+  color: var(--text-inverse);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-contrast);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--surface-emphasis);
+}

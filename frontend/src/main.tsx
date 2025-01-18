@@ -1,26 +1,76 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+import React, { startTransition } from 'react';
+import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import App from './app/App';
 import { store } from './store/store';
-import './index.css';
+import App from './app/App';
+import '@/styles/index.css';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { CssBaseline } from '@mui/material';
 
-const container = document.getElementById('root');
-if (!container) throw new Error('Failed to find the root element');
-const root = createRoot(container);
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean; error: Error | null }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
 
-try {
-  root.render(
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('Error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '20px', color: 'white', background: 'black' }}>
+          <h1>Application Error</h1>
+          <pre style={{ whiteSpace: 'pre-wrap' }}>
+            {this.state.error?.message}
+          </pre>
+          <button 
+            onClick={() => window.location.reload()} 
+            style={{ 
+              marginTop: '10px',
+              padding: '8px 16px',
+              background: '#333',
+              color: 'white',
+              border: '1px solid #666',
+              cursor: 'pointer'
+            }}
+          >
+            Reload Application
+          </button>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+const root = document.getElementById('root');
+if (!root) {
+  throw new Error('Root element not found');
+}
+
+const rootElement = ReactDOM.createRoot(root);
+
+startTransition(() => {
+  rootElement.render(
     <React.StrictMode>
-      <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </Provider>
+      <ErrorBoundary>
+        <Provider store={store}>
+          <ThemeProvider>
+            <CssBaseline />
+            <App />
+          </ThemeProvider>
+        </Provider>
+      </ErrorBoundary>
     </React.StrictMode>
   );
-} catch (error) {
-  console.error('Error rendering app:', error);
-  container.innerHTML = 'Failed to load application';
-} 
+}); 

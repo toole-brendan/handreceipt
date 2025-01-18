@@ -1,0 +1,56 @@
+.access-control {
+  padding: var(--space-6);
+}
+
+.access-header {
+  margin-bottom: var(--space-6);
+}
+
+.access-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-default);
+}
+
+.access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.access-card {
+  background: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.access-level {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-default);
+  margin-bottom: var(--space-2);
+}
+
+.access-description {
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.access-permissions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.permission-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.permission-item:last-child {
+  border-bottom: none;
+} 

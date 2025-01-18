@@ -1,0 +1,314 @@
+/* Property Pages Layout */
+
+.property-page {
+  composes: content-wrapper;
+}
+
+.property-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.property-title-section {
+  flex: 1;
+}
+
+.property-actions {
+  display: flex;
+  gap: var(--space-4);
+}
+
+/* Search and Filters Section */
+.property-controls {
+  background-color: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.property-search-filters {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.property-search {
+  flex: 1;
+}
+
+/* Property Tables */
+.property-table-container {
+  background-color: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.property-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.property-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--background-darker);
+}
+
+.property-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Column alignments */
+.property-table .serial-number {
+  text-align: right;
+  font-family: monospace;
+  color: var(--text-secondary);
+}
+
+.property-table td:nth-child(7) {  /* Value column */
+  text-align: right;
+}
+
+.property-table td:nth-child(6) {  /* Status column */
+  text-align: center;
+}
+
+/* Item name with warning icon */
+.item-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sensitive-icon {
+  display: flex;
+  align-items: center;
+  color: var(--warning);
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.action-button {
+  padding: 6px 12px;
+  background: var(--background-darker);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background: var(--background-hover);
+}
+
+/* Status badges */
+.property-status {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Column widths */
+.property-table th:nth-child(1),
+.property-table td:nth-child(1) {
+  width: 25%;
+}
+
+.property-table th:nth-child(2),
+.property-table td:nth-child(2) {
+  width: 12%;
+}
+
+.property-table th:nth-child(3),
+.property-table td:nth-child(3) {
+  width: 10%;
+}
+
+.property-table th:nth-child(4),
+.property-table td:nth-child(4) {
+  width: 12%;
+}
+
+.property-table th:nth-child(5),
+.property-table td:nth-child(5) {
+  width: 12%;
+}
+
+.property-table th:nth-child(6),
+.property-table td:nth-child(6) {
+  width: 10%;
+}
+
+.property-table th:nth-child(7),
+.property-table td:nth-child(7) {
+  width: 8%;
+}
+
+.property-table th:nth-child(8),
+.property-table td:nth-child(8) {
+  width: 11%;
+}
+
+/* Property Status Badges */
+.property-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.property-status--good {
+  background-color: var(--status-success-subtle);
+  color: var(--status-success-default);
+}
+
+.property-status--needs-service {
+  background-color: var(--status-warning-subtle);
+  color: var(--status-warning-default);
+}
+
+.property-status--in-service {
+  background-color: var(--status-info-subtle);
+  color: var(--status-info-default);
+}
+
+/* Property Actions */
+.property-action-buttons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.property-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--border-default);
+  background-color: var(--surface-default);
+  color: var(--text-default);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.property-action-button:hover {
+  background-color: var(--surface-emphasis);
+  border-color: var(--brand-default);
+}
+
+/* Historical Property Section */
+.historical-property {
+  margin-top: var(--space-8);
+}
+
+.historical-property-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-default);
+  margin-bottom: var(--space-4);
+}
+
+.filter-section {
+  background: rgb(32, 33, 35);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-tab {
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-tab:hover {
+  background: rgb(44, 45, 48);
+}
+
+.filter-tab--active {
+  background: rgb(39, 40, 43);
+}
+
+.filter-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.filter-group {
+  flex: 1;
+}
+
+.filter-dropdown {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgb(32, 33, 35);
+  border: 1px solid rgb(48, 49, 51);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-dropdown:hover {
+  background: rgb(44, 45, 48);
+  border-color: rgb(55, 56, 58);
+}
+
+.filter-dropdown__arrow {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  margin-left: 8px;
+}
+
+.filter-more {
+  padding: 8px 16px;
+  background: rgb(32, 33, 35);
+  border: 1px solid rgb(48, 49, 51);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.filter-more:hover {
+  background: rgb(44, 45, 48);
+  border-color: rgb(55, 56, 58);
+} 

@@ -1,0 +1,61 @@
+/* Label Base Styles */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--color-secondary-700);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+/* Label Sizes */
+.label-sm {
+  font-size: var(--font-size-sm);
+}
+
+.label-md {
+  font-size: var(--font-size-base);
+}
+
+.label-lg {
+  font-size: var(--font-size-lg);
+}
+
+/* Label States */
+.label-error {
+  color: var(--color-error-500);
+}
+
+/* Required & Optional Indicators */
+.label-required {
+  color: var(--color-error-500);
+  font-weight: var(--font-weight-bold);
+}
+
+.label-optional {
+  color: var(--color-secondary-400);
+  font-size: 0.875em;
+  font-weight: var(--font-weight-normal);
+}
+
+/* Disabled State */
+.label[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Focus State - for when label is clicked */
+.label:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+/* Label with Input Interaction */
+.label:has(+ input:disabled),
+.label:has(+ select:disabled),
+.label:has(+ textarea:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+} 

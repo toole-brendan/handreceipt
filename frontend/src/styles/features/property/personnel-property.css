@@ -1,0 +1,336 @@
+/* frontend/src/ui/styles/property/personnel-property.css */
+
+/* Personnel Property Page Layout */
+.personnel-property-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #121212;
+  }
+  
+  /* Header Styles */
+  .page-header {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .header-content h2 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Dashboard Stats */
+  .dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+  }
+  
+  .stat-card.alert .stat-value {
+    color: #ff1744;
+  }
+  
+  .stat-card.warning .stat-value {
+    color: #ffd600;
+  }
+  
+  /* Sensitive Items Toggle */
+  .sensitive-items-toggle {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #d50000;
+  }
+  
+  .sensitive-items-toggle label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  /* Unit List Styles */
+  .unit-list {
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  
+  .unit-list h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #37474f;
+  }
+  
+  .unit-tree {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .unit-group {
+    margin-bottom: 1rem;
+  }
+  
+  .unit-card {
+    background: #181818;
+    border: 1px solid #37474f;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .unit-card:hover {
+    border-color: #0d47a1;
+    transform: translateX(3px);
+  }
+  
+  .unit-card.selected {
+    border-color: #0d47a1;
+    background: rgba(13, 71, 161, 0.1);
+  }
+  
+  .unit-card h4, 
+  .unit-card h5 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .unit-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+  }
+  
+  .unit-alerts {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .alert-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .alert-badge.sensitive {
+    background: rgba(213, 0, 0, 0.15);
+    color: #ff1744;
+  }
+  
+  .alert-badge.pending {
+    background: rgba(255, 214, 0, 0.15);
+    color: #ffd600;
+  }
+  
+  .alert-badge.overdue {
+    background: rgba(213, 0, 0, 0.15);
+    color: #ff1744;
+  }
+  
+  /* Personnel List Styles */
+  .personnel-list {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .platoon-section {
+    margin-bottom: 1rem;
+  }
+  
+  .platoon-header {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.375rem;
+    border-bottom: 1px solid #37474f;
+  }
+  
+  .personnel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .personnel-card {
+    background: #181818;
+    border: 1px solid #37474f;
+    border-radius: 6px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .personnel-card:hover {
+    border-color: #0d47a1;
+    transform: translateY(-2px);
+  }
+  
+  .personnel-card.selected {
+    border-color: #0d47a1;
+    background: rgba(13, 71, 161, 0.1);
+  }
+  
+  .personnel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .rank-badge {
+    background: rgba(0, 200, 83, 0.15);
+    color: #00c853;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .duty-badge {
+    background: rgba(0, 145, 234, 0.15);
+    color: #0091ea;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .personnel-details {
+    margin: 0.75rem 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+  }
+  
+  .property-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #37474f;
+  }
+  
+  .property-stats .stat {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .property-stats .stat-value {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+  }
+  
+  .property-stats .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .inventory-status {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #37474f;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .property-management-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .personnel-property-page {
+      padding: 1rem;
+    }
+  
+    .page-header {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .header-actions {
+      width: 100%;
+      flex-direction: column;
+    }
+  
+    .dashboard-stats {
+      grid-template-columns: 1fr;
+    }
+  
+    .personnel-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Print Styles */
+  @media print {
+    .personnel-property-page {
+      background: white;
+      padding: 0;
+    }
+  
+    .header-actions,
+    .sensitive-items-toggle {
+      display: none;
+    }
+  
+    .unit-card,
+    .personnel-card {
+      break-inside: avoid;
+    }
+  }

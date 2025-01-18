@@ -1,0 +1,88 @@
+/* Progress Bar Styles */
+
+.progress {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--surface-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--brand-default);
+  transition: width var(--transition-normal);
+}
+
+/* Progress Sizes */
+.progress-sm {
+  height: 0.25rem;
+}
+
+.progress-lg {
+  height: 0.75rem;
+}
+
+/* Progress Variants */
+.progress-success .progress-bar {
+  background-color: var(--status-success-default);
+}
+
+.progress-warning .progress-bar {
+  background-color: var(--status-warning-default);
+}
+
+.progress-error .progress-bar {
+  background-color: var(--status-error-default);
+}
+
+/* Progress with Label */
+.progress-with-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  color: var(--text-subtle);
+}
+
+/* Progress States */
+.progress-indeterminate .progress-bar {
+  width: 50%;
+  animation: indeterminate 1.5s infinite linear;
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* Progress with Steps */
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+}
+
+.progress-step {
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-full);
+  background-color: var(--surface-subtle);
+}
+
+.progress-step-active {
+  background-color: var(--brand-default);
+}
+
+.progress-step-complete {
+  background-color: var(--status-success-default);
+} 

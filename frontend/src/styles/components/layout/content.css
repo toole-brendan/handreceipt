@@ -1,0 +1,195 @@
+/* Main Content Layout */
+.content-wrapper {
+  padding: var(--space-6);
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+  background-color: var(--background-default);
+}
+
+/* Page Header */
+.page-header {
+  margin-bottom: var(--space-8);
+}
+
+.page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-default);
+  margin-bottom: var(--space-4);
+}
+
+.page-description {
+  color: var(--text-subtle);
+  font-size: var(--font-size-md);
+  max-width: 600px;
+}
+
+/* Card Styles */
+.content-card {
+  background-color: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+/* Stats Card */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.stat-card {
+  background-color: var(--surface-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.stat-title {
+  color: var(--text-subtle);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stat-value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-default);
+  margin-bottom: var(--space-2);
+}
+
+.stat-change {
+  font-size: var(--font-size-sm);
+  color: var(--text-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* Table Styles */
+.content-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: var(--space-6);
+}
+
+.content-table th {
+  background-color: var(--surface-subtle);
+  color: var(--text-subtle);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.content-table td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-default);
+  color: var(--text-default);
+}
+
+.content-table tr:hover {
+  background-color: var(--surface-subtle);
+}
+
+/* Search and Filter Bar */
+.search-filter-bar {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  align-items: center;
+}
+
+.search-input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-10) 0 var(--space-10);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  background-color: var(--surface-subtle);
+  color: var(--text-default);
+  font-size: var(--font-size-md);
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+/* Status Indicators */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.status-badge--good {
+  background-color: var(--status-success-subtle);
+  color: var(--status-success-default);
+}
+
+.status-badge--warning {
+  background-color: var(--status-warning-subtle);
+  color: var(--status-warning-default);
+}
+
+.status-badge--error {
+  background-color: var(--status-error-subtle);
+  color: var(--status-error-default);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--border-default);
+  background-color: var(--surface-default);
+  color: var(--text-default);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.action-button:hover {
+  background-color: var(--surface-emphasis);
+  border-color: var(--brand-default);
+}
+
+.action-button--primary {
+  background-color: var(--brand-default);
+  border-color: var(--brand-default);
+  color: var(--text-inverse);
+}
+
+.action-button--primary:hover {
+  background-color: var(--brand-emphasis);
+  border-color: var(--brand-emphasis);
+} 

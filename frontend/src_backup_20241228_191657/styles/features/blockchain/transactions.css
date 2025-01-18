@@ -1,0 +1,169 @@
+/* frontend/src/ui/styles/blockchain/transactions.css */
+
+/* Blockchain Transactions Styles */
+.transactions-page {
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md);
+  border: 2px solid var(--border-secure);
+  border-radius: var(--border-radius-lg);
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.transactions-filters {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.search-input {
+  flex: 1;
+  background-color: white;
+  color: black;
+  border: 1px solid var(--border-primary);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+}
+
+.search-input::placeholder {
+  color: #666; /* Darker placeholder text for better contrast on white */
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.data-table th {
+  background: var(--surface-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+}
+
+.status::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: var(--spacing-xs);
+}
+
+.status.pending::before {
+  background-color: var(--warning-color);
+}
+
+.status.confirmed::before {
+  background-color: var(--success-color);
+}
+
+.status.failed::before {
+  background-color: var(--danger-color);
+}
+
+.status.pending {
+  background: var(--warning-color-light);
+  color: var(--warning-color);
+}
+
+.status.confirmed {
+  background: var(--success-color-light);
+  color: var(--success-color);
+}
+
+.status.failed {
+  background: var(--danger-color-light);
+  color: var(--danger-color);
+}
+
+/* Add security-focused styling */
+.secure-container {
+  position: relative;
+  min-height: 100vh;
+  background: var(--surface-primary);
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl);
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.filter-group {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Add pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+}
+
+.page-info {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  padding: 0 var(--spacing-md);
+}
+
+.pagination button {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--border-primary);
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--primary-color);
+  color: var(--surface-primary);
+  border-color: var(--primary-color);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--surface-disabled);
+} 

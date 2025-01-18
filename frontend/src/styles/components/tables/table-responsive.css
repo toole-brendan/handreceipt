@@ -1,0 +1,46 @@
+/* Table Responsive Styles */
+
+@media (max-width: 768px) {
+  .table-responsive th,
+  .table-responsive td {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: var(--space-2);
+  }
+
+  .table-responsive thead {
+    display: none;
+  }
+
+  .table-responsive tbody tr {
+    display: block;
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+  }
+
+  .table-responsive td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .table-responsive td:last-child {
+    border-bottom: none;
+  }
+
+  .table-responsive td::before {
+    content: attr(data-label);
+    font-weight: var(--font-weight-medium);
+    margin-right: var(--space-4);
+    color: var(--text-subtle);
+  }
+
+  .table-responsive .table-cell-end,
+  .table-responsive .table-cell-center {
+    text-align: right;
+  }
+} 

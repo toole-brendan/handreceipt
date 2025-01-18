@@ -1,0 +1,89 @@
+/* Position Utilities */
+
+/* Position */
+.static { position: static; }
+.fixed { position: fixed; }
+.absolute { position: absolute; }
+.relative { position: relative; }
+.sticky { position: sticky; }
+
+/* Top / Right / Bottom / Left */
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.inset-auto { top: auto; right: auto; bottom: auto; left: auto; }
+
+.inset-y-0 { top: 0; bottom: 0; }
+.inset-x-0 { right: 0; left: 0; }
+
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+
+.top-auto { top: auto; }
+.right-auto { right: auto; }
+.bottom-auto { bottom: auto; }
+.left-auto { left: auto; }
+
+/* Z-Index */
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-auto { z-index: auto; }
+
+/* Fixed Positioning Utilities */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+/* Sticky Positioning */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.sticky-bottom {
+  position: sticky;
+  bottom: 0;
+  z-index: 1020;
+}
+
+/* Responsive Position */
+@media (min-width: 640px) {
+  .sm\:static { position: static; }
+  .sm\:fixed { position: fixed; }
+  .sm\:absolute { position: absolute; }
+  .sm\:relative { position: relative; }
+  .sm\:sticky { position: sticky; }
+}
+
+@media (min-width: 768px) {
+  .md\:static { position: static; }
+  .md\:fixed { position: fixed; }
+  .md\:absolute { position: absolute; }
+  .md\:relative { position: relative; }
+  .md\:sticky { position: sticky; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:static { position: static; }
+  .lg\:fixed { position: fixed; }
+  .lg\:absolute { position: absolute; }
+  .lg\:relative { position: relative; }
+  .lg\:sticky { position: sticky; }
+} 

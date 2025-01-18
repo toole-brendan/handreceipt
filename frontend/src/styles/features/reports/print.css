@@ -1,0 +1,192 @@
+/* Print styles for all report types */
+@media print {
+  /* General page setup */
+  @page {
+    margin: 0.5in;
+    size: portrait;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  /* Hide unnecessary elements across all reports */
+  .report-actions,
+  .btn,
+  .button,
+  nav,
+  .sidebar,
+  .header-actions,
+  .classification-banner,
+  .report-filters,
+  .action-button,
+  .icon-button,
+  .audit-filters,
+  .search-input,
+  .category-filter,
+  .timeframe-filter {
+    display: none !important;
+  }
+
+  /* Common report container styles */
+  .property-accountability-report,
+  .maintenance-report,
+  .security-report,
+  .audit-report,
+  .report-viewer {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    min-height: auto !important;
+  }
+
+  /* Common report header styles */
+  .report-header {
+    margin-bottom: 1.5cm !important;
+    padding-bottom: 0.5cm !important;
+    border-bottom: 2pt solid #000 !important;
+  }
+
+  .report-header h1,
+  .report-header h2 {
+    font-size: 18pt !important;
+    color: black !important;
+    margin-bottom: 0.5cm !important;
+  }
+
+  /* Common metrics/status grid styles */
+  .metrics-grid,
+  .status-grid,
+  .overview-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.5cm !important;
+    margin: 0.5cm 0 1cm 0 !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Common metric/status card styles */
+  .metric-card,
+  .status-card,
+  .overview-section {
+    border: 1pt solid #000 !important;
+    padding: 0.3cm !important;
+    text-align: center !important;
+    break-inside: avoid !important;
+    background: white !important;
+  }
+
+  .metric-value,
+  .status-value,
+  .overview-value {
+    font-size: 16pt !important;
+    font-weight: bold !important;
+    color: black !important;
+    margin-bottom: 0.2cm !important;
+  }
+
+  .metric-label,
+  .status-label,
+  .overview-label {
+    font-size: 10pt !important;
+    color: #333 !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Table styles for all reports */
+  .incidents-table,
+  .maintenance-items-table,
+  .audit-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 1cm 0 !important;
+  }
+
+  .incidents-table th,
+  .maintenance-items-table th,
+  .audit-table th,
+  .incidents-table td,
+  .maintenance-items-table td,
+  .audit-table td {
+    border: 1pt solid #000 !important;
+    padding: 0.2cm !important;
+    text-align: left !important;
+    color: black !important;
+  }
+
+  th {
+    background-color: #f0f0f0 !important;
+    font-weight: bold !important;
+  }
+
+  /* Badge styles for all reports */
+  .incident-type-badge,
+  .severity-badge,
+  .status-badge,
+  .event-type-badge {
+    border: 1pt solid #000 !important;
+    padding: 0.1cm 0.2cm !important;
+    font-size: 9pt !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Maintenance report specific */
+  .maintenance-items-section {
+    margin: 1cm 0 !important;
+    break-inside: avoid !important;
+  }
+
+  .maintenance-item-card {
+    border: 1pt solid #000 !important;
+    padding: 0.3cm !important;
+    margin-bottom: 0.5cm !important;
+    break-inside: avoid !important;
+  }
+
+  /* Security report specific */
+  .security-metrics-section,
+  .security-incidents-section {
+    margin: 1cm 0 !important;
+    break-inside: avoid !important;
+  }
+
+  /* Audit report specific */
+  .audit-table-container {
+    margin: 1cm 0 !important;
+    break-inside: avoid !important;
+  }
+
+  /* Common section headers */
+  .report-section h3,
+  .security-metrics-section h3,
+  .maintenance-items-section h3,
+  .audit-section h3 {
+    font-size: 14pt !important;
+    color: black !important;
+    margin-bottom: 0.5cm !important;
+    border-bottom: 1pt solid #000 !important;
+  }
+
+  /* Report footer */
+  .report-footer {
+    margin-top: 1cm !important;
+    padding-top: 0.5cm !important;
+    border-top: 1pt solid #000 !important;
+    text-align: center !important;
+    font-size: 9pt !important;
+    color: #333 !important;
+  }
+
+  /* Page breaks */
+  .report-section,
+  .security-metrics-section,
+  .maintenance-items-section,
+  .audit-section {
+    page-break-inside: avoid !important;
+  }
+} 

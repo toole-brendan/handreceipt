@@ -1,0 +1,710 @@
+/* NCO Dashboard Specific Styles */
+
+/* Squad Overview */
+.squad-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.squad-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Personnel Section */
+.personnel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.personnel-card {
+  background: var(--color-surface);
+  border-radius: 8px;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+}
+
+.personnel-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.personnel-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.personnel-info {
+  flex: 1;
+}
+
+.personnel-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.personnel-role {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.personnel-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Equipment Status */
+.equipment-status {
+  margin-top: 2rem;
+}
+
+.equipment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.equipment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.equipment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.equipment-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.equipment-meta {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Maintenance Tasks */
+.maintenance-tasks {
+  margin-top: 2rem;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-item {
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.task-title {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.task-due {
+  font-size: 0.875rem;
+  color: var(--color-warning);
+}
+
+.task-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.task-assignee {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Maintenance Snapshot Styles */
+.maintenance-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.maintenance-stats .stat-card {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  background: var(--color-surface-dark);
+}
+
+.maintenance-stats .stat-card.warning {
+  background: var(--color-warning-light);
+}
+
+.maintenance-stats .stat-card.warning .stat-value {
+  color: var(--color-warning);
+}
+
+.maintenance-stats .stat-card.urgent {
+  background: var(--color-error-light);
+}
+
+.maintenance-stats .stat-card.urgent .stat-value {
+  color: var(--color-error);
+}
+
+.maintenance-list {
+  margin-top: var(--spacing-lg);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.maintenance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.maintenance-card {
+  background: var(--color-surface-dark);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.maintenance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.maintenance-progress {
+  margin: var(--spacing-sm) 0;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--color-surface-darker);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.status-completed {
+  background: var(--color-success);
+}
+
+.progress-fill.status-in-progress {
+  background: var(--color-primary);
+}
+
+.progress-fill.status-delayed {
+  background: var(--color-error);
+}
+
+.progress-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+/* Special Property Assignments Styles */
+.assignments-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.assignment-card {
+  background: var(--color-surface-dark);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.soldier-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.soldier-info h4 {
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.assignment-meta {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.meta-item i {
+  font-size: 16px;
+}
+
+.assigned-items {
+  background: var(--color-surface-darker);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+}
+
+.assigned-items h5 {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm);
+  background: var(--color-surface-dark);
+  border-radius: var(--border-radius);
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.item-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.item-serial {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.qualification-info {
+  background: var(--color-surface-darker);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+}
+
+.qualification-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-message {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-error);
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+.alert-message i {
+  font-size: 18px;
+}
+
+.qualification-badge {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.qualification-badge.status-qualified {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.qualification-badge.status-pending {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.qualification-badge.status-expired {
+  background: var(--color-error-light);
+  color: var(--color-error);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .squad-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .personnel-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .personnel-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .maintenance-stats,
+  .maintenance-grid,
+  .assignments-container {
+    grid-template-columns: 1fr;
+  }
+
+  .assignment-meta {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .assignment-actions {
+    flex-direction: column;
+  }
+
+  .action-button {
+    width: 100%;
+  }
+}
+
+.nco-dashboard {
+  padding: var(--spacing-lg);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.dashboard-controls {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.view-selector,
+.time-range-selector {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-surface);
+  font-size: var(--font-size-sm);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Quick Actions Section */
+.quick-actions-section {
+  grid-column: 1 / -1;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.action-card i {
+  font-size: 24px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+/* Alerts Section */
+.alerts-section {
+  grid-column: 1 / -1;
+}
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.alert-card {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  gap: var(--spacing-md);
+}
+
+.alert-card.urgent {
+  border-left: 4px solid var(--color-error);
+}
+
+.alert-card.warning {
+  border-left: 4px solid var(--color-warning);
+}
+
+.alert-card i {
+  font-size: 24px;
+}
+
+.alert-card.urgent i {
+  color: var(--color-error);
+}
+
+.alert-card.warning i {
+  color: var(--color-warning);
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-content h3 {
+  margin: 0;
+  font-size: var(--font-size-md);
+}
+
+.alert-content p {
+  margin: var(--spacing-xs) 0 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Personnel Status Section */
+.personnel-status-section {
+  background-color: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.status-card {
+  text-align: center;
+  padding: var(--spacing-md);
+  background-color: var(--color-background-light);
+  border-radius: var(--border-radius);
+}
+
+.status-value {
+  display: block;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.status-label {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.status-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+/* Training Section */
+.training-section {
+  background-color: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.training-card {
+  padding: var(--spacing-md);
+  background-color: var(--color-background-light);
+  border-radius: var(--border-radius);
+}
+
+.training-card h3 {
+  margin: 0 0 var(--spacing-md);
+  font-size: var(--font-size-md);
+}
+
+.training-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.training-card li {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.training-card li:last-child {
+  border-bottom: none;
+}
+
+.training-date {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+}
+
+.readiness-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.metric-value {
+  display: block;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-top: var(--spacing-xs);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nco-dashboard {
+    padding: var(--spacing-md);
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .dashboard-controls {
+    width: 100%;
+  }
+
+  .view-selector,
+  .time-range-selector {
+    flex: 1;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .status-grid,
+  .training-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .action-card,
+  .alert-card,
+  .personnel-status-section,
+  .training-section {
+    background-color: var(--color-surface-dark);
+  }
+
+  .status-card,
+  .training-card {
+    background-color: var(--color-surface-darker);
+  }
+} 

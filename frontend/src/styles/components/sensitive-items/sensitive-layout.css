@@ -1,0 +1,24 @@
+/* Sensitive items layout styles */
+.sensitive-items-layout {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.sensitive-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.sensitive-items-filters {
+  margin-bottom: 1rem;
+}
+
+.sensitive-items-actions {
+  margin-bottom: 1rem;
+}
+
+.verification-section {
+  margin-top: 2rem;
+}

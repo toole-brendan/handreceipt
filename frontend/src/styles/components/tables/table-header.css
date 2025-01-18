@@ -1,0 +1,29 @@
+/* Table Header Styles */
+
+.table thead {
+  background-color: var(--surface-subtle);
+}
+
+.table th {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Sticky Header */
+.table-sticky-header {
+  position: relative;
+}
+
+.table-sticky-header thead th {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+  background-color: var(--surface-subtle);
+} 

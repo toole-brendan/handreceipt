@@ -1,131 +1,65 @@
-// frontend/src/types/personnel.ts
-// Military ranks type
-export type MilitaryRank = 
-  // Enlisted
-  | 'PVT' | 'PV2' | 'PFC' | 'SPC' | 'CPL'
-  | 'SGT' | 'SSG' | 'SFC' | 'MSG' | 'SMA'
-  // Officers
-  | '2LT' | '1LT' | 'CPT' | 'MAJ' | 'LTC' | 'COL';
+import { BaseEntity } from './shared';
+import { Property } from './property';
 
-// Unit types
-export type UnitType = 'company' | 'platoon' | 'squad' | 'team';
-
-// Unit echelon types
-export type UnitEchelon = 'BN' | 'CO' | 'PLT' | 'SQD';
-
-export interface Unit {
-  id: string;
-  name: string;                    // e.g., "B Company, 1-23 IN"
-  shortName: string;               // e.g., "B CO"
-  type: UnitType;
-  echelon: UnitEchelon;
-  parentUnitId?: string;
-  commander: {
-    id: string;
-    rank: MilitaryRank;
-    name: string;
-  };
-  personnel: Personnel[];
-  stats: {
-    personnelCount: number;
-    equipmentCount: number;
-    sensitiveItemCount: number;
-    pendingTransfers: number;
-    overdueInventories: number;
-  };
-  lastInventory?: string;          // ISO date string
-  nextInventoryDue?: string;       // ISO date string
+export interface Equipment extends BaseEntity {
+  nsn: string;
+  description: string;
+  serialNumber: string;
+  status: 'SERVICEABLE' | 'UNSERVICEABLE' | 'MAINTENANCE';
 }
 
-export interface Personnel {
-  id: string;
-  rank: MilitaryRank;
+export interface Personnel extends BaseEntity {
   firstName: string;
   lastName: string;
-  dodId: string;                   // DOD ID number
-  unitId: string;
-  platoon: string;                 // e.g., "1st Platoon"
-  squad?: string;                  // e.g., "1st Squad"
-  team?: string;                   // e.g., "Alpha Team"
-  position: string;                // e.g., "Team Leader"
-  dutyPosition?: string;           // e.g., "Armorer", "Supply NCO"
-  section?: string;                // e.g., "S1", "Arms Room"
-  isCommander: boolean;
-  isPrimaryHandReceipt: boolean;
-  propertyAccess: {
-    canSignFor: boolean;
-    canTransfer: boolean;
-    canInventory: boolean;
-    sensitiveItems: boolean;
-  };
-  propertyStats: {
-    propertyCount: number;
-    sensitiveItemCount: number;
-    totalValue: number;
-    pendingTransfers: number;
-  };
-  inventoryStatus: {
-    lastInventory: string;         // ISO date string
-    nextInventoryDue: string;      // ISO date string
-    overdueCount: number;
-    cycleComplete: boolean;
-  };
-  contact: {
-    email: string;
-    phone?: string;
-    dsn?: string;
-  };
-  status: 'present' | 'leave' | 'tdy' | 'deployed' | 'other';
-  clearance?: 'SECRET' | 'TOP_SECRET' | 'SCI';
-  certifications?: string[];       // e.g., ["Arms Room", "HAZMAT"]
-  propertyCount?: number;
-  sensitiveItemCount?: number;
-  pendingTransfers?: number;
-  lastInventory?: string;
-}
-
-// Property accountability interfaces
-export interface HandReceipt {
-  id: string;
-  holder: Personnel;
-  primaryHolder: Personnel;
-  issueDate: string;              // ISO date string
-  lastUpdated: string;            // ISO date string
-  items: HandReceiptItem[];
-  status: 'active' | 'pending' | 'archived';
-  type: 'primary' | 'sub' | 'temporary';
-  signatures: {
-    issuer: string;
-    receiver: string;
-    witness?: string;
-  };
-}
-
-export interface HandReceiptItem {
-  id: string;
-  nsn: string;                    // National Stock Number
-  name: string;
-  serialNumber: string;
-  model: string;
-  value: number;
-  quantity: number;
-  condition: 'NEW' | 'SERVICEABLE' | 'UNSERVICEABLE' | 'DAMAGED';
-  isSensitive: boolean;
-  location: string;
-  lastInventoried: string;        // ISO date string
+  rank: string;
+  dodId: string;
+  unit: Unit;
+  position?: string;
+  email: string;
+  phone?: string;
+  status: PersonnelStatus;
+  assignedProperty: Property[];
+  clearance?: string;
+  dutyStatus: DutyStatus;
   notes?: string;
 }
 
-// Transfer interfaces
-export interface PropertyTransfer {
-  id: string;
-  fromUnit: Unit;
-  toUnit: Unit;
-  initiatedBy: Personnel;
-  approvedBy?: Personnel;
-  items: HandReceiptItem[];
-  status: 'pending' | 'approved' | 'completed' | 'rejected';
-  initiatedDate: string;          // ISO date string
-  completedDate?: string;         // ISO date string
-  comments?: string;
+export interface Unit extends BaseEntity {
+  name: string;
+  type: string;
+  parentUnit?: Unit;
+  commander?: Personnel;
+  location?: string;
+  personnel: Personnel[];
+  property: Property[];
 }
+
+export type PersonnelStatus = 'ACTIVE' | 'INACTIVE' | 'DEPLOYED' | 'LEAVE' | 'TRANSFERRED';
+export type DutyStatus = 'ON_DUTY' | 'OFF_DUTY' | 'LEAVE' | 'TDY' | 'TRAINING';
+
+export interface PersonnelState {
+  items: Personnel[];
+  selectedPerson: Personnel | null;
+  isLoading: boolean;
+  error: string | null;
+  filters: PersonnelFilters;
+}
+
+export interface PersonnelFilters {
+  unit?: string;
+  rank?: string;
+  status?: PersonnelStatus;
+  dutyStatus?: DutyStatus;
+  search?: string;
+}
+
+export interface Assignment extends BaseEntity {
+  personnel: Personnel;
+  property: Property;
+  assignedDate: string;
+  assignedBy: Personnel;
+  status: AssignmentStatus;
+  notes?: string;
+}
+
+export type AssignmentStatus = 'ACTIVE' | 'PENDING' | 'RETURNED' | 'LOST'; 

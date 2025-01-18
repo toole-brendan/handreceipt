@@ -1,0 +1,79 @@
+.classification-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.classification-badge::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: var(--spacing-xs);
+}
+
+/* Classification Colors */
+.classification-badge.unclassified {
+  background: var(--color-classification-unclassified-light);
+  color: var(--color-classification-unclassified);
+}
+
+.classification-badge.unclassified::before {
+  background-color: var(--color-classification-unclassified);
+}
+
+.classification-badge.confidential {
+  background: var(--color-classification-confidential-light);
+  color: var(--color-classification-confidential);
+}
+
+.classification-badge.confidential::before {
+  background-color: var(--color-classification-confidential);
+}
+
+.classification-badge.secret {
+  background: var(--color-classification-secret-light);
+  color: var(--color-classification-secret);
+}
+
+.classification-badge.secret::before {
+  background-color: var(--color-classification-secret);
+}
+
+.classification-badge.top-secret {
+  background: var(--color-classification-top-secret-light);
+  color: var(--color-classification-top-secret);
+}
+
+.classification-badge.top-secret::before {
+  background-color: var(--color-classification-top-secret);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .classification-badge {
+    border: 1px solid currentColor;
+  }
+  
+  .classification-badge.unclassified {
+    background: rgba(var(--color-classification-unclassified-rgb), 0.1);
+  }
+  
+  .classification-badge.confidential {
+    background: rgba(var(--color-classification-confidential-rgb), 0.1);
+  }
+  
+  .classification-badge.secret {
+    background: rgba(var(--color-classification-secret-rgb), 0.1);
+  }
+  
+  .classification-badge.top-secret {
+    background: rgba(var(--color-classification-top-secret-rgb), 0.1);
+  }
+} 

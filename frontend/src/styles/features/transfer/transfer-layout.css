@@ -1,0 +1,185 @@
+/* Transfer Pages Layout */
+
+.transfer-page {
+  composes: content-wrapper;
+}
+
+.transfer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.transfer-title-section {
+  flex: 1;
+}
+
+/* Stats Grid */
+.transfer-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.transfer-stat-card {
+  background-color: var(--surface-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.transfer-stat-title {
+  color: var(--text-subtle);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.transfer-stat-value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-default);
+  margin-bottom: var(--space-2);
+}
+
+.transfer-stat-change {
+  font-size: var(--font-size-sm);
+  color: var(--text-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* Search and Filters */
+.transfer-controls {
+  background-color: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.transfer-search-filters {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.transfer-search {
+  flex: 1;
+}
+
+/* Transfer Table */
+.transfer-table-container {
+  background-color: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.transfer-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.transfer-table th {
+  background-color: var(--surface-subtle);
+  color: var(--text-subtle);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.transfer-table td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-default);
+  color: var(--text-default);
+}
+
+.transfer-table tr:hover {
+  background-color: var(--surface-subtle);
+}
+
+/* Transfer Status and Priority Badges */
+.transfer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.transfer-badge--high {
+  background-color: var(--status-error-subtle);
+  color: var(--status-error-default);
+}
+
+.transfer-badge--medium {
+  background-color: var(--status-warning-subtle);
+  color: var(--status-warning-default);
+}
+
+.transfer-badge--low {
+  background-color: var(--status-info-subtle);
+  color: var(--status-info-default);
+}
+
+.transfer-badge--completed {
+  background-color: var(--status-success-subtle);
+  color: var(--status-success-default);
+}
+
+/* Transfer Actions */
+.transfer-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.transfer-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--border-default);
+  background-color: var(--surface-default);
+  color: var(--text-default);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.transfer-action-button:hover {
+  background-color: var(--surface-emphasis);
+  border-color: var(--brand-default);
+}
+
+.transfer-action-button--approve {
+  background-color: var(--status-success-default);
+  border-color: var(--status-success-default);
+  color: var(--text-inverse);
+}
+
+.transfer-action-button--approve:hover {
+  background-color: var(--status-success-emphasis);
+  border-color: var(--status-success-emphasis);
+}
+
+.transfer-action-button--deny {
+  background-color: var(--status-error-default);
+  border-color: var(--status-error-default);
+  color: var(--text-inverse);
+}
+
+.transfer-action-button--deny:hover {
+  background-color: var(--status-error-emphasis);
+  border-color: var(--status-error-emphasis);
+} 

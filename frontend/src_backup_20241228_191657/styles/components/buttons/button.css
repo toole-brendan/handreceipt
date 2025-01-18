@@ -1,0 +1,90 @@
+/* Base Button Styles */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Button Sizes */
+.btn-icon {
+  width: 2.25rem;  /* 36px */
+  height: 2.25rem;
+  padding: var(--space-2);
+}
+
+.btn-sm {
+  height: 2rem;    /* 32px */
+  padding: 0 var(--space-3);
+  font-size: var(--font-size-sm);
+  gap: var(--space-1);
+}
+
+.btn-md {
+  height: 2.25rem; /* 36px */
+  padding: 0 var(--space-4);
+  font-size: var(--font-size-md);
+  gap: var(--space-2);
+}
+
+.btn-lg {
+  height: 2.5rem;  /* 40px */
+  padding: 0 var(--space-6);
+  font-size: var(--font-size-lg);
+  gap: var(--space-2);
+}
+
+/* Button States */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-loading {
+  position: relative;
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.btn-loading .btn-content {
+  visibility: hidden;
+}
+
+.btn-loading .btn-spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Button with Icons */
+.btn-icon-left {
+  padding-left: var(--space-3);
+}
+
+.btn-icon-right {
+  padding-right: var(--space-3);
+}
+
+.btn-icon svg {
+  width: var(--space-4);
+  height: var(--space-4);
+}
+
+/* Focus States */
+.btn:focus-visible {
+  outline: 2px solid var(--border-focused);
+  outline-offset: 2px;
+}
+
+/* Active States */
+.btn:active {
+  transform: translateY(1px);
+} 

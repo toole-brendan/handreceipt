@@ -1,0 +1,93 @@
+/* Theme Utilities */
+
+/* Theme Background Colors */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-tertiary { background-color: var(--bg-tertiary); }
+.bg-accent { background-color: var(--bg-accent); }
+
+/* Theme Text Colors */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-accent { color: var(--text-accent); }
+
+/* Theme Border Colors */
+.border-primary { border-color: var(--border-primary); }
+.border-secondary { border-color: var(--border-secondary); }
+.border-accent { border-color: var(--border-accent); }
+
+/* Interactive States */
+.hover\:bg-hover:hover { background-color: var(--hover-bg); }
+.active\:bg-active:active { background-color: var(--active-bg); }
+.disabled\:bg-disabled:disabled { background-color: var(--disabled-bg); }
+
+/* Form Elements */
+.input-bg { background-color: var(--input-bg); }
+.input-border { border-color: var(--input-border); }
+.focus\:input-focus:focus { border-color: var(--input-focus-border); }
+.placeholder-color::placeholder { color: var(--input-placeholder); }
+
+/* Button Variants */
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+}
+
+/* Status Colors */
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-error { color: var(--error); }
+.text-info { color: var(--info); }
+
+.bg-success { background-color: var(--success); }
+.bg-warning { background-color: var(--warning); }
+.bg-error { background-color: var(--error); }
+.bg-info { background-color: var(--info); }
+
+/* Shadow Utilities */
+.shadow { box-shadow: 0 1px 3px var(--shadow-color); }
+.shadow-md { box-shadow: 0 4px 6px var(--shadow-color); }
+.shadow-lg { box-shadow: 0 10px 15px var(--shadow-color-strong); }
+
+/* Table Theme */
+.table-header { background-color: var(--table-header-bg); }
+.table-row:hover { background-color: var(--table-row-hover); }
+.table-border { border-color: var(--table-border); }
+
+/* Card Theme */
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+/* Navigation Theme */
+.nav {
+  background-color: var(--nav-bg);
+  border-color: var(--nav-border);
+  color: var(--nav-text);
+}
+
+.nav-item:hover {
+  background-color: var(--nav-hover);
+}
+
+/* Overlay Elements */
+.overlay { background-color: var(--overlay-bg); }
+.modal { background-color: var(--modal-bg); }
+.tooltip {
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-text);
+}
+
+/* Theme Transitions */
+.theme-transition {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+} 

@@ -1,0 +1,92 @@
+/* Report Feature Variables */
+
+:root {
+  /* Colors */
+  --report-color-primary: var(--color-primary);
+  --report-color-primary-light: var(--color-primary-light);
+  --report-color-primary-dark: var(--color-primary-dark);
+  
+  --report-surface-primary: var(--color-surface);
+  --report-surface-secondary: var(--color-surface-variant);
+  --report-surface-hover: var(--color-surface-hover);
+  
+  --report-text-primary: var(--color-text-primary);
+  --report-text-secondary: var(--color-text-secondary);
+  
+  --report-border-primary: var(--color-border);
+  --report-border-secondary: var(--color-border-light);
+  
+  /* Status Colors */
+  --report-status-success-bg: var(--color-success-light);
+  --report-status-success-text: var(--color-success);
+  --report-status-processing-bg: var(--color-warning-light);
+  --report-status-processing-text: var(--color-warning);
+  --report-status-error-bg: var(--color-danger-light);
+  --report-status-error-text: var(--color-danger);
+  
+  /* Spacing */
+  --report-spacing-xs: 0.5rem;
+  --report-spacing-sm: 0.75rem;
+  --report-spacing-md: 1rem;
+  --report-spacing-lg: 1.5rem;
+  --report-spacing-xl: 2rem;
+  --report-spacing-2xl: 3rem;
+  
+  /* Typography */
+  --report-font-size-xs: 0.75rem;
+  --report-font-size-sm: 0.875rem;
+  --report-font-size-md: 1rem;
+  --report-font-size-lg: 1.125rem;
+  --report-font-size-xl: 1.25rem;
+  --report-font-size-2xl: 1.5rem;
+  
+  --report-font-weight-normal: 400;
+  --report-font-weight-medium: 500;
+  --report-font-weight-semibold: 600;
+  --report-font-weight-bold: 700;
+  
+  --report-line-height-tight: 1.25;
+  --report-line-height-normal: 1.5;
+  --report-line-height-relaxed: 1.75;
+  
+  /* Border Radius */
+  --report-radius-sm: 4px;
+  --report-radius-md: 6px;
+  --report-radius-lg: 8px;
+  --report-radius-xl: 12px;
+  
+  /* Shadows */
+  --report-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --report-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --report-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --report-shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.16);
+  
+  /* Transitions */
+  --report-transition-fast: 150ms;
+  --report-transition-normal: 250ms;
+  --report-transition-slow: 350ms;
+  --report-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Z-Index */
+  --report-z-index-base: 1;
+  --report-z-index-dropdown: 10;
+  --report-z-index-modal: 50;
+  --report-z-index-tooltip: 100;
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --report-surface-primary: var(--color-surface-dark);
+    --report-surface-secondary: var(--color-surface-variant-dark);
+    --report-surface-hover: var(--color-surface-hover-dark);
+    
+    --report-border-primary: var(--color-border-dark);
+    --report-border-secondary: var(--color-border-light-dark);
+    
+    --report-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --report-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.25);
+    --report-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --report-shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.35);
+  }
+} 

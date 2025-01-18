@@ -1,0 +1,117 @@
+.report-viewer {
+  padding: var(--spacing-lg);
+  background: var(--surface-primary);
+  min-height: 100vh;
+}
+
+.report-header {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.report-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.report-title h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: var(--font-size-2xl);
+}
+
+.report-metadata {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.metadata-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.metadata-item .label {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.report-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+}
+
+.report-content {
+  background: var(--surface-secondary);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-xl);
+  min-height: 400px;
+}
+
+.report-footer {
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-primary);
+}
+
+.verification,
+.signatures {
+  margin-bottom: var(--spacing-lg);
+}
+
+.verification .label,
+.signatures .label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--surface-dark);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+}
+
+.signatures ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.signatures li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Print styles */
+@media print {
+  .report-actions {
+    display: none;
+  }
+
+  .report-viewer {
+    padding: 0;
+  }
+
+  .report-content {
+    background: none;
+    padding: 0;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  code {
+    background: var(--surface-darker);
+  }
+} 

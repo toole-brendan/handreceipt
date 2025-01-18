@@ -1,0 +1,64 @@
+/* Form Layout Styles */
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+/* Form Label */
+.form-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-default);
+}
+
+.form-label-required::after {
+  content: "*";
+  color: var(--status-error-default);
+  margin-left: var(--space-1);
+}
+
+/* Form Helper Text */
+.form-helper-text {
+  font-size: var(--font-size-xs);
+  color: var(--text-subtle);
+  margin-top: var(--space-1);
+}
+
+/* Form Validation */
+.form-error-text {
+  font-size: var(--font-size-xs);
+  color: var(--status-error-default);
+  margin-top: var(--space-1);
+}
+
+.form-success-text {
+  font-size: var(--font-size-xs);
+  color: var(--status-success-default);
+  margin-top: var(--space-1);
+}
+
+/* Form Layout Variants */
+.form-horizontal {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.form-horizontal .form-group {
+  display: contents;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-default);
+} 

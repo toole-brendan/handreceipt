@@ -1,191 +1,275 @@
-// frontend/src/routes/index.tsx
+import { lazy, Suspense } from 'react';
+import { Navigate, useParams, Outlet } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
+import Layout from '@components/layout/Layout';
+import ProtectedRoute from '@components/common/ProtectedRoute';
+import ErrorBoundary from '@components/feedback/ErrorBoundary';
 
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from '@/features/auth/hooks/useAuth';
-import { 
-  Login, 
-  CreateAccount, 
-  ForgotPassword, 
-  ResetPassword 
-} from '@/features/auth/components';
-import Dashboard from '@/features/dashboard/components/Dashboard';
-import NCODashboard from '@/features/dashboard/components/nco/NCODashboard';
-import PersonnelProperty from '@/pages/property/personnel-property';
-import ProtectedRoute from '@/shared/components/common/ProtectedRoute';
-import TransferRequestPage from '@/pages/transfer';
-import MyPropertyPage from '@/pages/property/MyPropertyPage';
-import MaintenancePage from '@/pages/maintenance';
-import NewMaintenanceRequest from '@/pages/maintenance/new';
-import { Reports } from '@/features/reports/components';
+// Lazy load components
+const LoadingFallback = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <CircularProgress />
+  </div>
+);
 
-// Property page components
-const OfficerPropertyPage = React.lazy(() => import('@/pages/property/officer'));
-const SoldierPropertyPage = React.lazy(() => import('@/pages/property/soldier'));
+// Error fallback for routes
+const RouteErrorFallback = () => (
+  <div style={{ padding: '20px', textAlign: 'center' }}>
+    <h2>Something went wrong loading this page</h2>
+    <button 
+      onClick={() => window.location.reload()}
+      style={{ 
+        marginTop: '10px',
+        padding: '8px 16px',
+        background: '#333',
+        color: 'white',
+        border: '1px solid #666',
+        cursor: 'pointer'
+      }}
+    >
+      Retry
+    </button>
+  </div>
+);
 
-const AppRoutes: React.FC = () => {
-  const { isAuthenticated, currentUser } = useAuth();
+// Auth pages
+const Login = lazy(() => import('@/pages/auth/login.page'));
+const Profile = lazy(() => import('@/pages/auth/profile.page'));
+const CreateAccount = lazy(() => import('@/pages/auth/create-account.page'));
+const ForgotPassword = lazy(() => import('@/pages/auth/forgot-password.page'));
 
-  // Helper function to get role-specific dashboard path
-  const getDashboardPath = (role?: string) => {
-    switch (role) {
-      case 'officer':
-        return '/officer/dashboard';
-      case 'nco':
-        return '/nco/dashboard';
-      case 'soldier':
-        return '/soldier/dashboard';
-      default:
-        return '/login';
-    }
-  };
+// Property pages
+const PropertyIndex = lazy(() => import('@/pages/property/index.page'));
+const SensitiveItems = lazy(() => import('@/pages/property/sensitive-items.page'));
 
-  return (
-    <Routes>
-      {/* Public Routes */}
-      <Route
-        path="/login"
-        element={
-          isAuthenticated ? (
-            <Navigate to={getDashboardPath(currentUser?.role)} />
-          ) : (
-            <Login />
-          )
-        }
-      />
-      <Route
-        path="/create-account"
-        element={
-          isAuthenticated ? (
-            <Navigate to={getDashboardPath(currentUser?.role)} />
-          ) : (
-            <CreateAccount />
-          )
-        }
-      />
-      <Route
-        path="/forgot-password"
-        element={isAuthenticated ? <Navigate to={getDashboardPath(currentUser?.role)} /> : <ForgotPassword />}
-      />
-      <Route
-        path="/reset-password"
-        element={isAuthenticated ? <Navigate to={getDashboardPath(currentUser?.role)} /> : <ResetPassword />}
-      />
+// Maintenance pages
+const MaintenanceIndex = lazy(() => import('@/pages/maintenance/index.page'));
+const MaintenanceRequest = lazy(() => import('@/pages/maintenance/request.page'));
 
-      {/* Landing Page - Redirects to role-specific dashboard */}
-      <Route 
-        path="/" 
-        element={
-          !isAuthenticated ? (
-            <Navigate to="/login" />
-          ) : (
-            <Navigate to={getDashboardPath(currentUser?.role)} />
-          )
-        } 
-      />
-      
-      {/* Shared Protected Routes */}
-      <Route
-        path="/property"
-        element={
-          <ProtectedRoute>
-            <MyPropertyPage />
-          </ProtectedRoute>
-        }
-      />
+// Transfer pages
+const TransfersIndex = lazy(() => import('@/pages/transfers/index.page'));
+const NewTransfer = lazy(() => import('@/pages/transfers/new.page'));
 
-      <Route
-        path="/transfers"
-        element={
-          <ProtectedRoute>
-            <TransferRequestPage />
-          </ProtectedRoute>
-        }
-      />
+// Personnel pages (NCO & Officer only)
+const PersonnelDetails = lazy(() => import('@/pages/personnel/details.page'));
 
-      {/* Reports Routes */}
-      <Route
-        path="/reports/*"
-        element={
-          <ProtectedRoute role="officer">
-            <Reports />
-          </ProtectedRoute>
-        }
-      />
+// Reports pages (Officer only)
+const ReportsIndex = lazy(() => import('@/pages/reports/index.page'));
+const HistoryPage = lazy(() => import('@/pages/history/index.page'));
 
-      {/* Maintenance Routes */}
-      <Route
-        path="/maintenance"
-        element={
-          <ProtectedRoute>
-            <MaintenancePage />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/maintenance/new"
-        element={
-          <ProtectedRoute>
-            <NewMaintenanceRequest />
-          </ProtectedRoute>
-        }
-      />
-      
-      {/* Officer Routes */}
-      <Route
-        path="/officer/*"
-        element={
-          <ProtectedRoute role="officer">
-            <Routes>
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="property" element={<OfficerPropertyPage />} />
-              <Route path="*" element={<Navigate to="dashboard" replace />} />
-            </Routes>
-          </ProtectedRoute>
-        }
-      />
+// QR pages (Officer only)
+const QRIndex = lazy(() => import('@/pages/qr/index.page'));
+const QRBulk = lazy(() => import('@/pages/qr/bulk.page'));
 
-      {/* NCO Routes */}
-      <Route
-        path="/nco/*"
-        element={
-          <ProtectedRoute role="nco">
-            <Routes>
-              <Route path="dashboard" element={<NCODashboard />} />
-              <Route path="property" element={<PersonnelProperty />} />
-              <Route path="*" element={<Navigate to="dashboard" replace />} />
-            </Routes>
-          </ProtectedRoute>
-        }
-      />
+// Settings pages
+const Settings = lazy(() => import('@/pages/settings/index.page'));
 
-      {/* Soldier Routes */}
-      <Route
-        path="/soldier/*"
-        element={
-          <ProtectedRoute role="soldier">
-            <Routes>
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="property" element={<SoldierPropertyPage />} />
-              <Route path="*" element={<Navigate to="dashboard" replace />} />
-            </Routes>
-          </ProtectedRoute>
-        }
-      />
+// Utility pages
+const About = lazy(() => import('@/pages/utility/about.page'));
+const Help = lazy(() => import('@/pages/utility/help.page'));
+const Network = lazy(() => import('@/pages/utility/network.page'));
+const Notifications = lazy(() => import('@/pages/utility/notifications.page'));
+const Security = lazy(() => import('@/pages/utility/security.page'));
+const NotFound = lazy(() => import('@/pages/utility/not-found.page'));
 
-      {/* Catch all - Redirect to role-specific dashboard */}
-      <Route 
-        path="*" 
-        element={
-          !isAuthenticated ? (
-            <Navigate to="/login" />
-          ) : (
-            <Navigate to={getDashboardPath(currentUser?.role)} />
-          )
-        } 
-      />
-    </Routes>
-  );
-};
+// Lazy load components
+const PersonnelIndex = lazy(() => import('@/features/personnel/components/PersonnelIndex'));
 
-export default AppRoutes;
+// Sensitive Items routes
+const SensitiveItemsDashboard = lazy(() => import('@/pages/sensitive-items/index.page'));
+
+// History route
+const HistoryIndex = lazy(() => import('@/pages/history/index.page'));
+
+// Root layout that wraps authenticated routes
+const RootLayout = () => (
+  <Layout>
+    <ErrorBoundary>
+      <Suspense fallback={<LoadingFallback />}>
+        <Outlet />
+      </Suspense>
+    </ErrorBoundary>
+  </Layout>
+);
+
+const routes = [
+  // Auth routes (no layout wrapper)
+  {
+    path: '/login',
+    element: <Suspense fallback={<LoadingFallback />}><Login /></Suspense>,
+    errorElement: <RouteErrorFallback />
+  },
+  {
+    path: '/create-account',
+    element: <Suspense fallback={<LoadingFallback />}><CreateAccount /></Suspense>,
+    errorElement: <RouteErrorFallback />
+  },
+  {
+    path: '/forgot-password',
+    element: <Suspense fallback={<LoadingFallback />}><ForgotPassword /></Suspense>,
+    errorElement: <RouteErrorFallback />
+  },
+  {
+    path: '/profile',
+    element: <Suspense fallback={<LoadingFallback />}><Profile /></Suspense>,
+    errorElement: <RouteErrorFallback />
+  },
+  
+  // Main app routes (with layout wrapper)
+  {
+    path: '/',
+    element: <RootLayout />,
+    errorElement: <RouteErrorFallback />,
+    children: [
+      {
+        path: '',
+        element: <Navigate to="/property" replace />
+      },
+      // Property routes
+      {
+        path: 'property',
+        children: [
+          {
+            path: '',
+            element: <ProtectedRoute><PropertyIndex /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          }
+        ]
+      },
+      // Maintenance routes
+      {
+        path: 'maintenance',
+        children: [
+          {
+            path: '',
+            element: <ProtectedRoute><MaintenanceIndex /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          },
+          {
+            path: 'request',
+            element: <ProtectedRoute><MaintenanceRequest /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          }
+        ]
+      },
+      // Transfer routes
+      {
+        path: 'transfers',
+        children: [
+          {
+            path: '',
+            element: <ProtectedRoute><TransfersIndex /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          },
+          {
+            path: 'new',
+            element: <ProtectedRoute><NewTransfer /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          }
+        ]
+      },
+      // Personnel routes (NCO & Officer only)
+      {
+        path: 'personnel',
+        children: [
+          {
+            path: '',
+            element: <ProtectedRoute role="NCO"><PersonnelIndex /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          },
+          {
+            path: ':id',
+            element: <ProtectedRoute role="NCO"><PersonnelDetails /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          }
+        ]
+      },
+      // Reports routes (Officer only)
+      {
+        path: 'reports',
+        children: [
+          {
+            path: '',
+            element: <ProtectedRoute role="OFFICER">
+              <Suspense fallback={<LoadingFallback />}>
+                <ReportsIndex />
+              </Suspense>
+            </ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          }
+        ]
+      },
+      // QR routes (Officer only)
+      {
+        path: 'qr',
+        children: [
+          {
+            path: '',
+            element: <ProtectedRoute role="OFFICER"><QRIndex /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          },
+          {
+            path: 'bulk',
+            element: <ProtectedRoute role="OFFICER"><QRBulk /></ProtectedRoute>,
+            errorElement: <RouteErrorFallback />
+          }
+        ]
+      },
+      // Settings route
+      {
+        path: 'settings',
+        element: <ProtectedRoute><Settings /></ProtectedRoute>,
+        errorElement: <RouteErrorFallback />
+      },
+      // Utility routes
+      {
+        path: 'about',
+        element: <About />,
+        errorElement: <RouteErrorFallback />
+      },
+      {
+        path: 'help',
+        element: <Help />,
+        errorElement: <RouteErrorFallback />
+      },
+      {
+        path: 'network',
+        element: <ProtectedRoute><Network /></ProtectedRoute>,
+        errorElement: <RouteErrorFallback />
+      },
+      {
+        path: 'notifications',
+        element: <ProtectedRoute><Notifications /></ProtectedRoute>,
+        errorElement: <RouteErrorFallback />
+      },
+      {
+        path: 'security',
+        element: <ProtectedRoute><Security /></ProtectedRoute>,
+        errorElement: <RouteErrorFallback />
+      },
+      // Sensitive Items routes
+      {
+        path: 'sensitive-items',
+        element: <ProtectedRoute><SensitiveItemsDashboard /></ProtectedRoute>,
+        errorElement: <RouteErrorFallback />
+      },
+      // History route
+      {
+        path: 'history',
+        element: <ProtectedRoute>
+          <Suspense fallback={<LoadingFallback />}>
+            <HistoryIndex />
+          </Suspense>
+        </ProtectedRoute>,
+        errorElement: <RouteErrorFallback />
+      },
+      {
+        path: '*',
+        element: <NotFound />,
+        errorElement: <RouteErrorFallback />
+      }
+    ]
+  }
+];
+
+export default routes;

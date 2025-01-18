@@ -1,0 +1,56 @@
+/* Property Timeline specific styles */
+.property-timeline {
+  background: var(--background-darker);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.property-timeline__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.property-timeline__transfer {
+  background: var(--background-light);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.property-timeline__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.property-timeline__date {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.property-timeline__status {
+  text-transform: capitalize;
+}
+
+.property-timeline__status--completed {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.property-timeline__status--pending {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.property-timeline__status--rejected {
+  background: var(--error-bg);
+  color: var(--error);
+}
+
+.property-timeline__transfer-text {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+} 

@@ -1,0 +1,98 @@
+/* Inherit base styles from login.css */
+.login-page {
+  composes: login-page from './login.css';
+}
+
+/* Password Strength Indicator */
+.password-strength {
+  margin-top: 8px;
+  padding: 8px 0;
+}
+
+.strength-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.strength-bar .bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.strength-bar .bar.filled {
+  background-color: currentColor;
+}
+
+.strength-0 { color: #ff4444; }
+.strength-1 { color: #ff8c00; }
+.strength-2 { color: #ffd700; }
+.strength-3 { color: #9acd32; }
+.strength-4 { color: #32cd32; }
+.strength-5 { color: #00ff00; }
+
+.strength-text {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Role Selection Dropdown */
+select {
+  width: 100%;
+  padding: 16px;
+  background: #1C1C1E;
+  border: none;
+  border-radius: 12px;
+  color: #FFF;
+  font-size: 16px;
+  font-family: var(--font-family);
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+select option {
+  background: #1C1C1E;
+  color: #FFF;
+  padding: 16px;
+}
+
+select.error {
+  border: 1px solid var(--color-error);
+}
+
+/* Password Requirements */
+.password-requirements {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.password-requirements ul {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+}
+
+.password-requirements li {
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.password-requirements li::before {
+  content: "•";
+  color: currentColor;
+} 

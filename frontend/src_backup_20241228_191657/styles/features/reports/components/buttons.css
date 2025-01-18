@@ -1,0 +1,117 @@
+/* Report Button Components */
+
+/* Base Button */
+.report-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--report-spacing-sm);
+  padding: var(--report-spacing-sm) var(--report-spacing-lg);
+  border-radius: var(--report-radius-md);
+  font-size: var(--report-font-size-sm);
+  font-weight: var(--report-font-weight-medium);
+  cursor: pointer;
+  transition: all var(--report-transition-fast) var(--report-transition-timing);
+}
+
+/* Primary Button */
+.report-button-primary {
+  background: var(--report-color-primary);
+  color: white;
+  border: none;
+}
+
+.report-button-primary:hover {
+  background: var(--report-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--report-shadow-md);
+}
+
+/* Secondary Button */
+.report-button-secondary {
+  background: var(--report-surface-secondary);
+  color: var(--report-text-primary);
+  border: 1px solid var(--report-border-primary);
+}
+
+.report-button-secondary:hover {
+  background: var(--report-surface-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--report-shadow-sm);
+}
+
+/* Icon Button */
+.report-button-icon {
+  padding: var(--report-spacing-sm);
+  border-radius: var(--report-radius-md);
+  background: transparent;
+  color: var(--report-text-primary);
+  border: 1px solid var(--report-border-primary);
+}
+
+.report-button-icon:hover {
+  background: var(--report-surface-hover);
+  transform: translateY(-1px);
+}
+
+/* Button Group */
+.report-button-group {
+  display: inline-flex;
+  gap: var(--report-spacing-sm);
+}
+
+.report-button-group--vertical {
+  flex-direction: column;
+}
+
+/* Button Sizes */
+.report-button-sm {
+  padding: var(--report-spacing-xs) var(--report-spacing-sm);
+  font-size: var(--report-font-size-xs);
+}
+
+.report-button-lg {
+  padding: var(--report-spacing-md) var(--report-spacing-xl);
+  font-size: var(--report-font-size-md);
+}
+
+/* Button States */
+.report-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.report-button-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.report-button-loading::after {
+  content: '';
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: report-button-spin 0.6s linear infinite;
+}
+
+@keyframes report-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .report-button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .report-button {
+    width: 100%;
+  }
+} 

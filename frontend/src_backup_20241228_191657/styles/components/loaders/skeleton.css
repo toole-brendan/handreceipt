@@ -1,0 +1,67 @@
+/* Skeleton Loader Styles */
+
+.skeleton {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-md);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Skeleton Variants */
+.skeleton-text {
+  height: 1em;
+  margin-bottom: 0.5em;
+}
+
+.skeleton-circle {
+  border-radius: var(--radius-full);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.skeleton-button {
+  width: 6rem;
+  height: 2.25rem;
+}
+
+.skeleton-image {
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+/* Skeleton Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Skeleton Line Widths */
+.skeleton-text-short {
+  width: 60%;
+}
+
+.skeleton-text-medium {
+  width: 80%;
+}
+
+.skeleton-text-full {
+  width: 100%;
+}
+
+/* Skeleton Groups */
+.skeleton-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Skeleton Card */
+.skeleton-card {
+  padding: var(--space-4);
+  background: var(--surface-default);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+} 

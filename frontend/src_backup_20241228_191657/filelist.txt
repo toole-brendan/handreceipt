@@ -1,0 +1,16 @@
+/Users/brendantoole/handreceipt_working/frontend/styles/theme/dark.css
+/Users/brendantoole/handreceipt_working/frontend/styles/theme/variables.css 
+/Users/brendantoole/handreceipt_working/frontend/src/ui/card.tsx 
+/Users/brendantoole/handreceipt_working/frontend/src/shared/components/layout/Sidebar.tsx 
+/Users/brendantoole/handreceipt_working/frontend/styles/design-system.css 
+/Users/brendantoole/handreceipt_working/frontend/src/ui/button.tsx 
+/Users/brendantoole/handreceipt_working/frontend/src/ui/input.tsx 
+/Users/brendantoole/handreceipt_working/frontend/src/ui/table.tsx 
+/Users/brendantoole/handreceipt_working/frontend/src/ui/select.tsx 
+/Users/brendantoole/handreceipt_working/frontend/src/ui/alert.tsx 
+/Users/brendantoole/handreceipt_working/frontend/src/shared/components/layout/Layout.tsx 
+/Users/brendantoole/handreceipt_working/frontend/src/shared/components/layout/Header.tsx 
+/Users/brendantoole/handreceipt_working/frontend/src/shared/components/layout/Navigation.tsx 
+/Users/brendantoole/handreceipt_working/frontend/styles/theme/base.css 
+/Users/brendantoole/handreceipt_working/frontend/styles/theme/colors.css 
+/Users/brendantoole/handreceipt_working/frontend/styles/theme/typography.css

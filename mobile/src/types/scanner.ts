@@ -38,4 +38,19 @@ export interface QRCameraConfig {
     showFrame?: boolean;
     frameColor?: string;
     frameSize?: number;
+}
+
+export interface Property {
+    id: string;
+    name: string;
+    nsn: string;
+    serialNumber: string;
+    description?: string;
+    condition: string;
+    currentHolder: string;
+    location?: string;
+    unit: string;
+    createdBy: string;
+    createdAt: string;
+    updatedAt: string;
 } 

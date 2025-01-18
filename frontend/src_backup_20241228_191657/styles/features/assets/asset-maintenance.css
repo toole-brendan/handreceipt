@@ -1,0 +1,186 @@
+/* Asset Maintenance Page Styles */
+.asset-maintenance {
+  padding: var(--spacing-lg);
+}
+
+.maintenance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.asset-info {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+}
+
+.maintenance-form {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+}
+
+.form-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-section-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+}
+
+.maintenance-grid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.maintenance-card {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+}
+
+.maintenance-type {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.type-scheduled {
+  background-color: var(--color-info-light);
+  color: var(--color-info);
+}
+
+.type-emergency {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+}
+
+.type-preventive {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.maintenance-history {
+  margin-top: var(--spacing-xl);
+}
+
+.history-list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.history-item {
+  padding: var(--spacing-md);
+  background-color: var(--color-surface-variant);
+  border-radius: var(--border-radius-sm);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.history-date {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.technician-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.technician-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-surface-variant);
+}
+
+.technician-details {
+  flex: 1;
+}
+
+.technician-name {
+  font-weight: var(--font-weight-medium);
+}
+
+.technician-role {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.maintenance-checklist {
+  margin: var(--spacing-lg) 0;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.checklist-status {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.status-complete {
+  color: var(--color-success);
+}
+
+.status-pending {
+  color: var(--color-warning);
+}
+
+.maintenance-notes {
+  margin-top: var(--spacing-lg);
+}
+
+.note-item {
+  padding: var(--spacing-md);
+  background-color: var(--color-surface-variant);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+}
+
+.note-author {
+  font-weight: var(--font-weight-medium);
+}
+
+.note-timestamp {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.maintenance-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+} 

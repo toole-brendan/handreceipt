@@ -28,24 +28,64 @@ A secure military property management system using QR codes and blockchain verif
 .
 ├── backend/                 # Rust backend service
 │   ├── src/
-│   │   ├── domain/         # Core business logic
-│   │   │   ├── property/   # Property management
-│   │   │   └── transfer/   # Transfer processing
-│   │   ├── application/    # Application services
-│   │   ├── infrastructure/ # External implementations
-│   │   └── security/       # Security features
-│   └── tests/              # Integration & unit tests
+│   │   ├── api/           # API endpoints and handlers
+│   │   ├── domain/        # Core business logic
+│   │   ├── error/         # Error handling
+│   │   ├── infrastructure/# External implementations
+│   │   ├── security/      # Security features
+│   │   └── types/         # Shared types
+│   └── tests/
+│       ├── integration/   # Integration tests
+│       └── unit/         # Unit tests
 │
-├── frontend/               # React web interface
+├── frontend/              # React web interface
 │   └── src/
-│       ├── pages/         # Page components
-│       │   ├── property/  # Property views
-│       │   └── reports/   # Report generation
-│       └── ui/            # Reusable components
+│       ├── app/          # App initialization
+│       ├── components/   # Shared components
+│       │   ├── common/   # Common UI components
+│       │   ├── feedback/ # Error & loading components
+│       │   ├── forms/    # Form components
+│       │   └── layout/   # Layout components
+│       ├── features/     # Feature modules
+│       │   ├── analytics/
+│       │   ├── auth/
+│       │   ├── history/
+│       │   ├── maintenance/
+│       │   ├── personnel/
+│       │   ├── qr-generator/
+│       │   ├── sensitive-items/
+│       │   ├── settings/
+│       │   └── transfers/
+│       ├── hooks/        # Custom React hooks
+│       ├── pages/        # Page components
+│       ├── services/     # API and other services
+│       ├── store/        # Redux store
+│       │   ├── middleware/
+│       │   ├── selectors/
+│       │   └── slices/
+│       ├── styles/       # Styling and themes
+│       └── types/        # TypeScript types
 │
-└── mobile/                # Mobile QR scanner
+└── mobile/               # React Native mobile app
+    ├── ios/             # iOS native code
+    │   └── HandReceipt/
+    │       └── Camera/  # QR scanner implementation
+    ├── rust/            # Rust native modules
+    │   └── src/
+    │       ├── offline/ # Offline support
+    │       ├── scanner/ # QR code scanning
+    │       └── security/# Security features
     └── src/
-        └── scanner/       # QR code scanning
+        ├── components/  # React Native components
+        ├── features/    # Feature modules
+        ├── hooks/       # Custom hooks
+        ├── native/      # Native bridge
+        ├── navigation/  # Navigation setup
+        ├── screens/     # Screen components
+        ├── services/    # API and services
+        ├── store/       # Redux store
+        ├── types/       # TypeScript types
+        └── utils/       # Utility functions
 ```
 
 ## Getting Started
@@ -138,20 +178,6 @@ The system follows Domain-Driven Design with a clean architecture:
 - API Layer: HTTP interface and middleware
 - Security Layer: Cross-cutting security concerns
 
-### Testing
-
-Run backend tests:
-```bash
-cd backend
-cargo test
-```
-
-Run frontend tests:
-```bash
-cd frontend
-npm test
-```
-
 ## Security Features
 
 ### Authentication
@@ -167,7 +193,7 @@ Uses JWT tokens with:
 
 Role-based access control:
 - Officers can approve sensitive transfers
-- NCOs can manage property
+- NCOs have oversight of junior enlisted soldiers'property ()
 - Soldiers can initiate transfers
 
 ### Blockchain Verification

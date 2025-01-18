@@ -1,34 +1,35 @@
-/* frontend/src/App.tsx */
+import React, { startTransition } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Layout from '@components/layout/Layout';
+import LoadingFallback from '@components/feedback/LoadingFallback';
+import ErrorBoundary from '@components/feedback/ErrorBoundary';
+import routes from './routes';
+import { SettingsProvider } from '@contexts/SettingsContext';
+import theme from '@/styles/theme';
 
-import React, { Suspense } from 'react';
-import { useLocation } from 'react-router-dom';
-import Layout from '@/shared/components/layout/Layout';
-import LoadingFallback from '@/shared/components/feedback/LoadingFallback';
-import ErrorBoundary from '@/shared/components/feedback/ErrorBoundary';
-import AppRoutes from './routes';
-import '@/styles/app.css';
-import { SettingsProvider } from '@/contexts/SettingsContext';
+// Configure router
+const router = createBrowserRouter(routes);
 
 const App: React.FC = () => {
-  const location = useLocation();
-  const isAuthRoute = ['/login', '/create-account', '/forgot-password', '/reset-password'].includes(location.pathname);
+  // Wrap the entire app in startTransition
+  const [isPending, startRouteTransition] = React.useTransition();
 
   return (
-    <SettingsProvider>
-      <ErrorBoundary>
-        {isAuthRoute ? (
-          <Suspense fallback={<LoadingFallback />}>
-            <AppRoutes />
-          </Suspense>
-        ) : (
-          <Layout>
-            <Suspense fallback={<LoadingFallback />}>
-              <AppRoutes />
-            </Suspense>
-          </Layout>
-        )}
-      </ErrorBoundary>
-    </SettingsProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <SettingsProvider>
+        <ErrorBoundary>
+          <React.Suspense fallback={<LoadingFallback />}>
+            <RouterProvider 
+              router={router} 
+              fallbackElement={isPending ? <LoadingFallback /> : null}
+            />
+          </React.Suspense>
+        </ErrorBoundary>
+      </SettingsProvider>
+    </ThemeProvider>
   );
 };
 

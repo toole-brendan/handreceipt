@@ -1,0 +1,125 @@
+/* Asset Transfer Page Styles */
+.transfer-container {
+  padding: var(--space-6);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.transfer-card {
+  background-color: var(--surface-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-default);
+  margin-bottom: var(--space-6);
+}
+
+.transfer-card__header {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.transfer-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-default);
+  margin: 0;
+}
+
+.transfer-card__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+.transfer-form {
+  padding: var(--space-4);
+  background-color: var(--surface-default);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+}
+
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--text-default);
+  font-weight: var(--font-weight-medium);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-default);
+  color: var(--text-default);
+  font-size: var(--font-size-sm);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--brand-default);
+  box-shadow: 0 0 0 2px var(--brand-subtle);
+}
+
+.form-footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-default);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.transfer-status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--surface-emphasis);
+}
+
+.transfer-status--pending {
+  background-color: var(--status-warning-subtle);
+  color: var(--status-warning-default);
+}
+
+.transfer-status--completed {
+  background-color: var(--status-success-subtle);
+  color: var(--status-success-default);
+}
+
+.transfer-status--failed {
+  background-color: var(--status-error-subtle);
+  color: var(--status-error-default);
+}
+
+.transfer-details {
+  padding: var(--space-4);
+  background-color: var(--surface-emphasis);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-4);
+}
+
+.transfer-details__label {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.transfer-details__value {
+  font-size: var(--font-size-md);
+  color: var(--text-default);
+}
+
+.transfer-history {
+  background-color: var(--surface-emphasis);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-4);
+} 

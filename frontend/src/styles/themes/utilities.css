@@ -1,0 +1,52 @@
+/* Theme Utilities */
+
+/* Text Colors */
+.text-primary { color: var(--color-primary); }
+.text-primary-light { color: var(--color-primary-light); }
+.text-primary-dark { color: var(--color-primary-dark); }
+
+.text-default { color: var(--text-default); }
+.text-muted { color: var(--text-muted); }
+.text-subtle { color: var(--text-subtle); }
+.text-inverse { color: var(--text-inverse); }
+
+/* Background Colors */
+.bg-surface { background-color: var(--surface-default); }
+.bg-surface-subtle { background-color: var(--surface-subtle); }
+.bg-surface-hover { background-color: var(--surface-hover); }
+.bg-surface-emphasis { background-color: var(--surface-emphasis); }
+
+.bg-primary { background-color: var(--color-primary); }
+.bg-primary-light { background-color: var(--color-primary-light); }
+.bg-primary-dark { background-color: var(--color-primary-dark); }
+
+/* Border Colors */
+.border-default { border-color: var(--border-default); }
+.border-subtle { border-color: var(--border-subtle); }
+.border-emphasis { border-color: var(--border-emphasis); }
+
+/* Status Colors */
+.text-success { color: var(--success-default); }
+.text-warning { color: var(--warning-default); }
+.text-error { color: var(--error-default); }
+.text-info { color: var(--info-default); }
+
+.bg-success { background-color: var(--success-default); }
+.bg-warning { background-color: var(--warning-default); }
+.bg-error { background-color: var(--error-default); }
+.bg-info { background-color: var(--info-default); }
+
+.bg-success-subtle { background-color: var(--success-subtle); }
+.bg-warning-subtle { background-color: var(--warning-subtle); }
+.bg-error-subtle { background-color: var(--error-subtle); }
+.bg-info-subtle { background-color: var(--info-subtle); }
+
+/* Shadow Utilities */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* Theme Toggle */
+.theme-auto { color-scheme: auto; }
+.theme-light { color-scheme: light; }
+.theme-dark { color-scheme: dark; } 

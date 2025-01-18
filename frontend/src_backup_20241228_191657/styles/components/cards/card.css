@@ -1,0 +1,242 @@
+/* Card Component */
+
+/* Base Card */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+/* Card Variants */
+.card-default {
+  background-color: var(--surface-default);
+  border: 1px solid var(--border-default);
+}
+
+.card-outline {
+  background-color: transparent;
+  border: 1px solid var(--border-default);
+}
+
+.card-ghost {
+  background-color: transparent;
+  border: none;
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-sm);
+}
+
+.card-elevated:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Card Header */
+.card-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+/* Card Content */
+.card-content {
+  padding: var(--spacing-lg);
+}
+
+/* Card Footer */
+.card-footer {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+}
+
+/* Card Media */
+.card-media {
+  position: relative;
+  width: 100%;
+  margin: calc(var(--space-4) * -1);
+  margin-bottom: var(--space-4);
+}
+
+.card-media:last-child {
+  margin-bottom: calc(var(--space-4) * -1);
+}
+
+.card-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* Card Sizes */
+.card-sm {
+  padding: var(--space-3);
+  max-width: 300px;
+}
+
+.card-md {
+  padding: var(--space-4);
+}
+
+.card-lg {
+  padding: var(--space-6);
+  max-width: 800px;
+}
+
+/* Interactive States */
+.card-interactive {
+  cursor: pointer;
+  transition: transform var(--transition-normal);
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.card-hoverable {
+  cursor: pointer;
+}
+
+.card-hoverable:hover {
+  border-color: var(--border-emphasis);
+  box-shadow: var(--shadow-md);
+}
+
+/* Card States */
+.card-loading {
+  position: relative;
+}
+
+.card-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Card Grid Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Card with Icon */
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-hover);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Card with Badge */
+.card-badge {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Card with Status */
+.card-status {
+  position: relative;
+  padding-left: var(--space-1);
+}
+
+.card-status::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: var(--radius-full);
+}
+
+.card-status-success::before {
+  background-color: var(--status-success-default);
+}
+
+.card-status-warning::before {
+  background-color: var(--status-warning-default);
+}
+
+.card-status-error::before {
+  background-color: var(--status-error-default);
+}
+
+.card-status-info::before {
+  background-color: var(--status-info-default);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    margin: 0 var(--spacing-sm);
+  }
+
+  .card-header,
+  .card-content,
+  .card-footer {
+    padding: var(--spacing-md);
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions button {
+    width: 100%;
+  }
+} 

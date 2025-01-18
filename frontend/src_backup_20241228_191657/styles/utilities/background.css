@@ -1,0 +1,85 @@
+/* Background Utilities */
+
+/* Background Attachment */
+.bg-fixed { background-attachment: fixed; }
+.bg-local { background-attachment: local; }
+.bg-scroll { background-attachment: scroll; }
+
+/* Background Clip */
+.bg-clip-border { background-clip: border-box; }
+.bg-clip-padding { background-clip: padding-box; }
+.bg-clip-content { background-clip: content-box; }
+.bg-clip-text { background-clip: text; }
+
+/* Background Origin */
+.bg-origin-border { background-origin: border-box; }
+.bg-origin-padding { background-origin: padding-box; }
+.bg-origin-content { background-origin: content-box; }
+
+/* Background Position */
+.bg-bottom { background-position: bottom; }
+.bg-center { background-position: center; }
+.bg-left { background-position: left; }
+.bg-left-bottom { background-position: left bottom; }
+.bg-left-top { background-position: left top; }
+.bg-right { background-position: right; }
+.bg-right-bottom { background-position: right bottom; }
+.bg-right-top { background-position: right top; }
+.bg-top { background-position: top; }
+
+/* Background Repeat */
+.bg-repeat { background-repeat: repeat; }
+.bg-no-repeat { background-repeat: no-repeat; }
+.bg-repeat-x { background-repeat: repeat-x; }
+.bg-repeat-y { background-repeat: repeat-y; }
+.bg-repeat-round { background-repeat: round; }
+.bg-repeat-space { background-repeat: space; }
+
+/* Background Size */
+.bg-auto { background-size: auto; }
+.bg-cover { background-size: cover; }
+.bg-contain { background-size: contain; }
+
+/* Background Opacity */
+.bg-opacity-0 { --bg-opacity: 0; }
+.bg-opacity-25 { --bg-opacity: 0.25; }
+.bg-opacity-50 { --bg-opacity: 0.5; }
+.bg-opacity-75 { --bg-opacity: 0.75; }
+.bg-opacity-100 { --bg-opacity: 1; }
+
+/* Background Blend Mode */
+.bg-blend-normal { background-blend-mode: normal; }
+.bg-blend-multiply { background-blend-mode: multiply; }
+.bg-blend-screen { background-blend-mode: screen; }
+.bg-blend-overlay { background-blend-mode: overlay; }
+.bg-blend-darken { background-blend-mode: darken; }
+.bg-blend-lighten { background-blend-mode: lighten; }
+.bg-blend-color-dodge { background-blend-mode: color-dodge; }
+.bg-blend-color-burn { background-blend-mode: color-burn; }
+.bg-blend-hard-light { background-blend-mode: hard-light; }
+.bg-blend-soft-light { background-blend-mode: soft-light; }
+.bg-blend-difference { background-blend-mode: difference; }
+.bg-blend-exclusion { background-blend-mode: exclusion; }
+.bg-blend-hue { background-blend-mode: hue; }
+.bg-blend-saturation { background-blend-mode: saturation; }
+.bg-blend-color { background-blend-mode: color; }
+.bg-blend-luminosity { background-blend-mode: luminosity; }
+
+/* Responsive Background */
+@media (min-width: 640px) {
+  .sm\:bg-fixed { background-attachment: fixed; }
+  .sm\:bg-local { background-attachment: local; }
+  .sm\:bg-scroll { background-attachment: scroll; }
+}
+
+@media (min-width: 768px) {
+  .md\:bg-fixed { background-attachment: fixed; }
+  .md\:bg-local { background-attachment: local; }
+  .md\:bg-scroll { background-attachment: scroll; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:bg-fixed { background-attachment: fixed; }
+  .lg\:bg-local { background-attachment: local; }
+  .lg\:bg-scroll { background-attachment: scroll; }
+} 

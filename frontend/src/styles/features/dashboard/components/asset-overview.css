@@ -1,0 +1,159 @@
+/* Asset Overview Component Styles */
+.asset-overview {
+  padding: var(--space-6);
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.total-assets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.total-label {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.total-value {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--brand-default);
+}
+
+.status-breakdown {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2);
+  background-color: var(--surface-default);
+  border-radius: var(--radius-sm);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-details {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-label {
+  font-weight: var(--font-weight-medium);
+}
+
+.status-numbers {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+}
+
+.status-value {
+  font-weight: var(--font-weight-bold);
+}
+
+.status-percentage {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Status Colors */
+.status-operational .status-indicator { background-color: var(--status-success-default); }
+.status-maintenance .status-indicator { background-color: var(--status-warning-default); }
+.status-decommissioned .status-indicator { background-color: var(--status-error-default); }
+.status-intransit .status-indicator { background-color: var(--color-info); }
+
+.chart-section {
+  margin: var(--space-8) 0;
+}
+
+.chart-container {
+  height: 200px;
+  margin-top: var(--space-4);
+}
+
+.overview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--surface-subtle);
+}
+
+.overview-footer small {
+  color: var(--text-muted);
+}
+
+/* Chart Customization */
+.recharts-pie-label-text {
+  font-size: var(--font-size-sm);
+  fill: var(--text-default);
+}
+
+.recharts-tooltip-wrapper {
+  background-color: var(--surface-default) !important;
+  border: 1px solid var(--surface-subtle) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.recharts-default-tooltip {
+  background-color: var(--surface-default) !important;
+  border-color: var(--surface-subtle) !important;
+}
+
+.recharts-tooltip-label {
+  color: var(--text-default) !important;
+}
+
+.recharts-tooltip-item-list {
+  padding: 0 !important;
+}
+
+.recharts-tooltip-item {
+  color: var(--text-muted) !important;
+  padding: var(--space-1) 0 !important;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .status-item {
+    background-color: var(--color-surface-dark);
+  }
+
+  .overview-footer {
+    border-color: var(--surface-subtle);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .status-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .status-item {
+    padding: var(--space-1);
+  }
+
+  .chart-container {
+    height: 150px;
+  }
+}

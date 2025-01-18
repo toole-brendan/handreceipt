@@ -1,0 +1,163 @@
+/* Global Styles */
+
+/* Base Layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-default);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: var(--space-6);
+  min-height: calc(100vh - var(--header-height));
+  transition: opacity var(--transition-standard);
+  position: relative;
+  background-color: var(--background-default);
+}
+
+/* Typography Base Styles */
+h1, h2 {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: var(--space-6);
+}
+
+h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  margin-bottom: var(--space-4);
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-transform: none;
+}
+
+h2 {
+  font-size: 2rem;
+  text-transform: none;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+h6 {
+  font-size: 1.125rem;
+  letter-spacing: 0.01em;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+a:hover {
+  opacity: var(--hover-opacity);
+  border-bottom-color: var(--text-primary);
+}
+
+/* Selection */
+::selection {
+  background: var(--text-primary);
+  color: var(--background-default);
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 1px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.military-panel {
+  background-color: var(--background-default);
+  border: 1px solid var(--border-primary);
+  transition: var(--transition-fast);
+}
+
+.military-panel:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  opacity: var(--hover-opacity);
+}
+
+.military-text {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn var(--transition-standard) ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp var(--transition-standard) ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} 

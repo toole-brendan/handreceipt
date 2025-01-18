@@ -23,11 +23,22 @@ pub use handlers::{
 pub use auth::*;
 
 use actix_web::web;
+use actix_cors::Cors;
 use crate::api::routes::{mobile, property, transfer, user};
 
 pub fn configure(cfg: &mut web::ServiceConfig) {
+    // Configure CORS
+    let cors = Cors::default()
+        .allowed_origin("http://localhost:3000")  // Frontend dev server
+        .allowed_origin("http://localhost:19006")  // React Native dev server
+        .allowed_origin("capacitor://localhost")  // Mobile app
+        .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
+        .allowed_headers(vec!["Authorization", "Content-Type"])
+        .supports_credentials();
+
     cfg.service(
         web::scope("/api")
+            .wrap(cors)
             .configure(mobile::configure_routes)
             .configure(property::configure_routes)
             .configure(transfer::configure_routes)

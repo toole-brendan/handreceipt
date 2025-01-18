@@ -1,0 +1,48 @@
+/* Navigation Menu Styles */
+
+.nav-menu {
+  padding: var(--space-4);
+}
+
+.nav-menu-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-default);
+  margin-bottom: var(--space-6);
+}
+
+.nav-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  border: 1px solid var(--text-default);
+  border-radius: var(--radius-md);
+  color: var(--text-default);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.nav-menu-item:hover {
+  background-color: var(--surface-emphasis);
+  border-color: var(--brand-default);
+}
+
+.nav-menu-item.active {
+  background-color: var(--brand-default);
+  border-color: var(--brand-default);
+  color: var(--text-inverse);
+}
+
+.nav-menu-item-icon {
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+}
+
+.nav-menu-item-text {
+  flex: 1;
+} 

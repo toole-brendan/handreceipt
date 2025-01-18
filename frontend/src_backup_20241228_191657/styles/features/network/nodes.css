@@ -1,0 +1,129 @@
+/* Network Nodes Page Styles */
+.network-nodes {
+  padding: var(--spacing-lg);
+}
+
+.nodes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.nodes-grid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.node-card {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+}
+
+.node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.node-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.node-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.status-online {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.status-offline {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+}
+
+.status-syncing {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.node-metrics {
+  display: grid;
+  gap: var(--spacing-sm);
+}
+
+.metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.metric-label {
+  color: var(--color-text-secondary);
+}
+
+.metric-value {
+  font-weight: var(--font-weight-medium);
+}
+
+.node-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.node-details {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.details-label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.details-value {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+}
+
+.node-chart {
+  margin-top: var(--spacing-lg);
+  height: 200px;
+}
+
+.filters-bar {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.search-input {
+  flex: 1;
+  max-width: 300px;
+}
+
+.filter-select {
+  min-width: 150px;
+} 

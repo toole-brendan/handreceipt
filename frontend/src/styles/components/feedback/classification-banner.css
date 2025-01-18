@@ -1,0 +1,33 @@
+.classification-banner {
+  width: 100%;
+  padding: var(--spacing-sm);
+  background-color: var(--color-error);
+  color: white;
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.classification-banner .classification-level {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius-sm);
+}
+
+/* Animation for attention */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+.classification-banner {
+  animation: pulse 2s infinite;
+} 
