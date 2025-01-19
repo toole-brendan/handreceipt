@@ -43,14 +43,22 @@ export interface QRCameraConfig {
 export interface Property {
     id: string;
     name: string;
-    nsn: string;
-    serialNumber: string;
     description?: string;
-    condition: string;
-    currentHolder: string;
-    location?: string;
-    unit: string;
-    createdBy: string;
+    status: PropertyStatus;
+    qrCode?: string;
+    syncStatus?: SyncStatus;
     createdAt: string;
     updatedAt: string;
+}
+
+export enum PropertyStatus {
+    Available = 'AVAILABLE',
+    InTransfer = 'IN_TRANSFER',
+    Transferred = 'TRANSFERRED'
+}
+
+export enum SyncStatus {
+    Pending = 'PENDING',
+    Synced = 'SYNCED',
+    Failed = 'FAILED'
 } 

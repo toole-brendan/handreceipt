@@ -4,12 +4,15 @@ export enum UserRole {
   SOLDIER = 'SOLDIER',
 }
 
+export type ClearanceLevel = 'UNCLASSIFIED' | 'CONFIDENTIAL' | 'SECRET' | 'TOP_SECRET';
+
 export interface User {
   id: string;
   name: string;
   rank: string;
   unit: string;
   role: UserRole;
+  clearanceLevel: ClearanceLevel;
 }
 
 export interface AuthState {
