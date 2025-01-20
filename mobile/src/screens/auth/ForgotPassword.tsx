@@ -107,6 +107,4 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 16,
   },
-});
-
-export default ForgotPasswordScreen; 
+}); 

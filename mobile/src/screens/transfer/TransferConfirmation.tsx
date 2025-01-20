@@ -20,7 +20,7 @@ interface Props {
 }
 
 export const TransferConfirmationScreen = ({ navigation, route }: Props) => {
-  const { transferId } = route.params;
+  const { itemId } = route.params;
   const { user } = useAuth();
   const { queue } = useTransferQueue();
   const [property, setProperty] = useState<Property | null>(null);
@@ -29,13 +29,13 @@ export const TransferConfirmationScreen = ({ navigation, route }: Props) => {
 
   useEffect(() => {
     loadTransferDetails();
-  }, [transferId]);
+  }, [itemId]);
 
   const loadTransferDetails = async () => {
     try {
       setLoading(true);
       const [transferDetails, propertyDetails] = await Promise.all([
-        HandReceiptModule.getTransfer(transferId),
+        HandReceiptModule.getTransfer(itemId),
         HandReceiptModule.getPropertyDetails(transfer?.propertyId || '')
       ]);
       setTransfer(transferDetails);
@@ -48,7 +48,7 @@ export const TransferConfirmationScreen = ({ navigation, route }: Props) => {
   };
 
   const getTransferStatus = () => {
-    const queuedTransfer = queue.find(t => t.id === transferId);
+    const queuedTransfer = queue.find(t => t.id === itemId);
     if (queuedTransfer) {
       switch (queuedTransfer.status) {
         case QueueStatus.PENDING:

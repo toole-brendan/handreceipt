@@ -19,8 +19,8 @@ export type PropertyStackParamList = {
 export type TransferStackParamList = {
   Scanner: undefined;
   QRGenerator: { itemId: string };
-  TransferConfirmation: { transferId: string };
-  TransactionHistory: { itemId?: string };
+  TransferConfirmation: { itemId: string };
+  TransactionHistory: undefined;
 };
 
 export type ReportsStackParamList = {
@@ -28,11 +28,18 @@ export type ReportsStackParamList = {
   ReportViewer: { reportId: string };
 };
 
+export type CommandStackParamList = {
+  UnitDetails: { unitId?: string }; // Optional unitId, if not provided shows user's unit
+  PersonnelDetails: { personnelId: string };
+  TransferDetails: { transferId: string };
+};
+
 // Main tab navigation
 export type TabParamList = {
-  Property: undefined;
-  Transfer: undefined;
-  Reports: undefined;
+  Command: NavigatorScreenParams<CommandStackParamList>;
+  Property: NavigatorScreenParams<PropertyStackParamList>;
+  Transfer: NavigatorScreenParams<TransferStackParamList>;
+  Reports: NavigatorScreenParams<ReportsStackParamList>;
   Analytics: undefined;
   Profile: undefined;
 };
@@ -48,6 +55,7 @@ export type AuthStackNavigationProp = NativeStackNavigationProp<AuthStackParamLi
 export type PropertyStackNavigationProp = NativeStackNavigationProp<PropertyStackParamList>;
 export type TransferStackNavigationProp = NativeStackNavigationProp<TransferStackParamList>;
 export type ReportsStackNavigationProp = NativeStackNavigationProp<ReportsStackParamList>;
+export type CommandStackNavigationProp = NativeStackNavigationProp<CommandStackParamList>;
 export type RootStackNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 // Combined navigation types for nested navigators
@@ -56,8 +64,15 @@ export type TabNavigationProp<T extends keyof TabParamList> = CompositeNavigatio
   RootStackNavigationProp
 >;
 
+// Command screens need to navigate to property screens
+export type CommandScreenNavigationProp = CompositeNavigationProp<
+  CommandStackNavigationProp,
+  PropertyStackNavigationProp
+>;
+
 // Route prop types
 export type AuthRouteProps<T extends keyof AuthStackParamList> = RouteProp<AuthStackParamList, T>;
 export type PropertyRouteProps<T extends keyof PropertyStackParamList> = RouteProp<PropertyStackParamList, T>;
 export type TransferRouteProps<T extends keyof TransferStackParamList> = RouteProp<TransferStackParamList, T>;
-export type ReportsRouteProps<T extends keyof ReportsStackParamList> = RouteProp<ReportsStackParamList, T>; 
+export type ReportsRouteProps<T extends keyof ReportsStackParamList> = RouteProp<ReportsStackParamList, T>;
+export type CommandRouteProps<T extends keyof CommandStackParamList> = RouteProp<CommandStackParamList, T>; 

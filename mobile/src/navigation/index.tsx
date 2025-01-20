@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // Auth screens
 import { LoginScreen } from '../screens/auth/Login';
@@ -24,11 +24,16 @@ import { TransactionHistoryScreen } from '../screens/transfer/TransactionHistory
 import { ReportsScreen } from '../screens/reports/Reports';
 import { ReportViewerScreen } from '../screens/reports/ReportViewer';
 
+// Command screens
+import { UnitDetailsScreen } from '../screens/command/UnitDetails';
+import { PersonnelDetailsScreen } from '../screens/command/PersonnelDetails';
+
 // Other screens
 import { AnalyticsScreen } from '../screens/analytics/Analytics';
 import { ProfileScreen } from '../screens/profile/Profile';
 
 import { useAuth } from '../hooks/useAuth';
+import { UserRole } from '../types/auth';
 import {
   RootStackParamList,
   TabParamList,
@@ -36,6 +41,7 @@ import {
   PropertyStackParamList,
   TransferStackParamList,
   ReportsStackParamList,
+  CommandStackParamList,
 } from '../types/navigation';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -43,6 +49,7 @@ const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const PropertyStack = createNativeStackNavigator<PropertyStackParamList>();
 const TransferStack = createNativeStackNavigator<TransferStackParamList>();
 const ReportsStack = createNativeStackNavigator<ReportsStackParamList>();
+const CommandStack = createNativeStackNavigator<CommandStackParamList>();
 const Tab = createBottomTabNavigator<TabParamList>();
 
 const AuthNavigator = () => (
@@ -77,73 +84,111 @@ const ReportsNavigator = () => (
   </ReportsStack.Navigator>
 );
 
-const MainTabs = () => (
-  <Tab.Navigator
-    screenOptions={{
-      tabBarStyle: {
-        backgroundColor: '#fff',
-        borderTopColor: '#e0e0e0',
-        paddingBottom: 8,
-        paddingTop: 8,
-        height: 60,
-      },
-      tabBarActiveTintColor: '#2196F3',
-      tabBarInactiveTintColor: '#666',
-      headerShown: false,
-    }}
-  >
-    <Tab.Screen
-      name="Property"
-      component={PropertyNavigator}
-      options={{
-        title: 'Properties',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="box" size={size} color={color} />
-        ),
+const CommandNavigator = () => {
+  const { user } = useAuth();
+  return (
+    <CommandStack.Navigator>
+      <CommandStack.Screen 
+        name="UnitDetails" 
+        component={UnitDetailsScreen} 
+        initialParams={{ unitId: user?.unit }}
+        options={{ title: 'Unit Overview' }} 
+      />
+      <CommandStack.Screen 
+        name="PersonnelDetails" 
+        component={PersonnelDetailsScreen} 
+        options={{ title: 'Personnel Details' }} 
+      />
+    </CommandStack.Navigator>
+  );
+};
+
+const MainTabs = () => {
+  const { user } = useAuth();
+  const isLeadership = user?.role === UserRole.OFFICER || user?.role === UserRole.NCO;
+
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#fff',
+          borderTopColor: '#e0e0e0',
+          paddingBottom: 8,
+          paddingTop: 8,
+          height: 60,
+        },
+        tabBarActiveTintColor: '#2196F3',
+        tabBarInactiveTintColor: '#666',
+        headerShown: false,
       }}
-    />
-    <Tab.Screen
-      name="Transfer"
-      component={TransferNavigator}
-      options={{
-        title: 'Transfer',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="repeat" size={size} color={color} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Reports"
-      component={ReportsNavigator}
-      options={{
-        title: 'Reports',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="file-text" size={size} color={color} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Analytics"
-      component={AnalyticsScreen}
-      options={{
-        title: 'Analytics',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="bar-chart-2" size={size} color={color} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Profile"
-      component={ProfileScreen}
-      options={{
-        title: 'Profile',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="user" size={size} color={color} />
-        ),
-      }}
-    />
-  </Tab.Navigator>
-);
+    >
+      {isLeadership && (
+        <Tab.Screen
+          name="Command"
+          component={CommandNavigator}
+          options={{
+            title: 'Unit',
+            tabBarIcon: ({ color, size }) => (
+              <Icon name="people" size={size} color={color} />
+            ),
+          }}
+        />
+      )}
+      <Tab.Screen
+        name="Property"
+        component={PropertyNavigator}
+        options={{
+          title: 'Properties',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="inventory" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Transfer"
+        component={TransferNavigator}
+        options={{
+          title: 'Transfer',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="swap-horiz" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Reports"
+        component={ReportsNavigator}
+        options={{
+          title: 'Reports',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="assessment" size={size} color={color} />
+          ),
+        }}
+      />
+      {isLeadership && (
+        <Tab.Screen
+          name="Analytics"
+          component={AnalyticsScreen}
+          options={{
+            title: 'Analytics',
+            tabBarIcon: ({ color, size }) => (
+              <Icon name="insights" size={size} color={color} />
+            ),
+          }}
+        />
+      )}
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="person" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
 
 export const Navigation = () => {
   const { user } = useAuth();
